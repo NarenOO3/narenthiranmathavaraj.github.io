@@ -11,6 +11,118 @@
     
     <style>
         /* ========================================
+           PHOTO GALLERY
+        ======================================== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            background: var(--bg-dark);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+            border-color: var(--primary);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1a1f3a 0%, #2a2f4a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--text-secondary);
+            overflow: hidden;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-image img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            padding: 1.5rem;
+        }
+
+        .gallery-caption h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .gallery-caption p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Lightbox for Full-Size Images */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s;
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 85vh;
+            margin-top: 3%;
+            animation: zoomIn 0.3s;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: var(--text-primary);
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary);
+        }
+
+        #lightbox-caption {
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* ========================================
            CSS RESET & BASE STYLES
         ======================================== */
         * {
@@ -876,6 +988,8 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#interests">Interests</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -1340,6 +1454,127 @@
         </div>
     </section>
 
+    <!-- PHOTO GALLERY SECTION -->
+    <section id="gallery" style="background: var(--bg-card); padding: var(--section-padding);">
+        <h2 class="section-title">Gallery</h2>
+        <p class="section-subtitle">Moments from workshops, conferences, and competitions</p>
+        
+        <div class="gallery-grid">
+            <!-- Workshop Photos -->
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    🎓
+                    <!-- Replace with: <img src="images/workshop1.jpg" alt="Conducting Robotics Workshop"> -->
+                </div>
+                <div class="gallery-caption">
+                    <h4>Robotics Workshop</h4>
+                    <p>Teaching autonomous navigation to 30+ students</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    🏆
+                    <!-- Replace with: <img src="images/award1.jpg" alt="Receiving Best Project Award"> -->
+                </div>
+                <div class="gallery-caption">
+                    <h4>Best Autonomous System Award</h4>
+                    <p>National Robotics Competition 2024</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    📊
+                    <!-- Replace with: <img src="images/conference1.jpg" alt="Presenting at IEEE Conference"> -->
+                </div>
+                <div class="gallery-caption">
+                    <h4>IEEE ICRA 2024 Presentation</h4>
+                    <p>Presenting research on lightweight SLAM</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    👥
+                    <!-- Replace with: <img src="images/workshop2.jpg" alt="Workshop Group Photo"> -->
+                </div>
+                <div class="gallery-caption">
+                    <h4>Workshop Participants</h4>
+                    <p>Hands-on robotics training session</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    🤖
+                    <!-- Replace with: <img src="images/competition1.jpg" alt="Robotics Competition"> -->
+                </div>
+                <div class="gallery-caption">
+                    <h4>University Robotics Competition</h4>
+                    <p>Organized event with 50+ participants</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    🎤
+                    <!-- Replace with: <img src="images/presentation1.jpg" alt="Technical Presentation"> -->
+                </div>
+                <div class="gallery-caption">
+                    <h4>Technical Talk</h4>
+                    <p>Presenting SLAM implementation at symposium</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lightbox Modal for Full-Size Images -->
+        <div id="lightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+            <div id="lightbox-caption"></div>
+        </div>
+    </section>
+
+    <!-- BEYOND THE LAB SECTION -->
+    <section id="interests">
+        <h2 class="section-title">Beyond the Lab</h2>
+        <p class="section-subtitle">Leadership, problem-solving, and staying balanced</p>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Beyond my technical work, I'm passionate about <strong>sharing knowledge and building community</strong>. I've conducted multiple robotics workshops for students and organized our university's annual robotics competition, mentoring over 50 participants in autonomous system design.
+                </p>
+                <p>
+                    I'm an avid <strong>speedcuber</strong>—solving the 3x3 Rubik's cube in under 15 seconds. This hobby has sharpened my spatial reasoning and algorithmic thinking, skills that directly translate to robotics path planning and optimization problems. The pattern recognition and muscle memory involved mirror the challenges in real-time robotic control.
+                </p>
+                <p>
+                    To maintain balance, I actively play <strong>handball and badminton</strong>, and recently started <strong>calisthenics training</strong>. These activities keep me physically active and mentally sharp—essential for the demanding nature of graduate research. Team sports have also taught me valuable lessons in coordination, quick decision-making, and working under pressure.
+                </p>
+            </div>
+            
+            <div class="about-details">
+                <h3>🎯 Leadership & Community</h3>
+                <ul>
+                    <li>Robotics workshop instructor (50+ students)</li>
+                    <li>University robotics competition organizer</li>
+                    <li>FIRST Robotics mentor</li>
+                    <li>Open-source contributor</li>
+                </ul>
+                
+                <h3 style="margin-top: 2rem;">🧩 Problem-Solving & Interests</h3>
+                <ul>
+                    <li>Speedcubing (3x3 in &lt;15 sec)</li>
+                    <li>Algorithmic thinking & optimization</li>
+                    <li>Handball player</li>
+                    <li>Badminton enthusiast</li>
+                    <li>Calisthenics training</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <!-- SKILLS SECTION -->
     <section id="skills">
         <h2 class="section-title">Technical Skills</h2>
@@ -1491,6 +1726,44 @@
                 document.querySelectorAll('.modal').forEach(modal => {
                     modal.style.display = 'none';
                 });
+                document.body.style.overflow = 'auto';
+                
+                // Close lightbox too
+                document.getElementById('lightbox').style.display = 'none';
+            }
+        });
+
+        // Lightbox functionality
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.querySelector('.lightbox-close');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const img = this.querySelector('.gallery-image img');
+                const caption = this.querySelector('.gallery-caption h4').textContent;
+                
+                if (img) {
+                    lightbox.style.display = 'block';
+                    lightboxImg.src = img.src;
+                    lightboxCaption.textContent = caption;
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        if (lightboxClose) {
+            lightboxClose.addEventListener('click', function() {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        }
+
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
         });
