@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Robotics and Embedded Systems Portfolio">
-    <title>Your Name | Robotics Engineer</title>
+    <meta name="description" content="Robotics and Embedded Systems Portfolio - Master's Application">
+    <title>Your Name | Robotics Engineer Portfolio</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -20,7 +20,6 @@
         }
 
         :root {
-            /* Color Palette */
             --primary: #00d9ff;
             --primary-dark: #00a8cc;
             --bg-dark: #0a0e27;
@@ -29,12 +28,8 @@
             --text-primary: #e4e4e7;
             --text-secondary: #a1a1aa;
             --accent: #7c3aed;
-            
-            /* Typography */
             --font-main: 'Inter', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
-            
-            /* Spacing */
             --section-padding: 80px 20px;
             --container-max: 1200px;
         }
@@ -113,7 +108,6 @@
             width: 100%;
         }
 
-        /* Mobile menu toggle */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -327,11 +321,11 @@
         }
 
         /* ========================================
-           PROJECTS SECTION
+           PROJECTS SECTION WITH IMAGES & MODALS
         ======================================== */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -339,52 +333,60 @@
         .project-card {
             background: var(--bg-card);
             border-radius: 12px;
-            padding: 2rem;
+            overflow: hidden;
             border: 1px solid rgba(0, 217, 255, 0.1);
             transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #1a1f3a 0%, #2a2f4a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 4rem;
             position: relative;
             overflow: hidden;
         }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .project-image img {
             width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transform: scaleX(0);
-            transition: transform 0.3s;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .project-card:hover {
-            background: var(--bg-card-hover);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
-        }
-
-        .project-card:hover::before {
-            transform: scaleX(1);
+        .project-info {
+            padding: 1.5rem;
         }
 
         .project-card h3 {
             color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
         }
 
         .project-card p {
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .tech-tag {
@@ -392,25 +394,241 @@
             color: var(--primary);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-family: var(--font-mono);
         }
 
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-links a {
+        .view-details {
             color: var(--primary);
-            text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .project-links a:hover {
-            color: var(--primary-dark);
+        /* ========================================
+           MODAL POPUP
+        ======================================== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            margin: 3% auto;
+            padding: 0;
+            border: 1px solid var(--primary);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            animation: slideDown 0.3s;
+            position: relative;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            background: var(--bg-dark);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .close {
+            color: var(--text-secondary);
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+
+        .close:hover {
+            color: var(--primary);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #1a1f3a 0%, #2a2f4a 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            font-size: 5rem;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+        }
+
+        .modal-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .modal-section p, .modal-section ul {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal-section li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .modal-section li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .modal-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* ========================================
+           RESEARCH & ACHIEVEMENTS
+        ======================================== */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 1.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid var(--bg-dark);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-mono);
+        }
+
+        .timeline-item p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           ACHIEVEMENTS GRID
+        ======================================== */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .achievement-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .achievement-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .achievement-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .achievement-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
         /* ========================================
@@ -581,6 +799,19 @@
             .section-title {
                 font-size: 2rem;
             }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline-item::before {
+                left: -2.5rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -599,6 +830,32 @@
             .btn {
                 width: 100%;
             }
+
+            .modal-header {
+                padding: 1rem;
+            }
+
+            .modal-body {
+                padding: 1rem;
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
         }
     </style>
 </head>
@@ -615,7 +872,9 @@
             <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -627,11 +886,11 @@
         <div class="hero-content">
             <h1>Your Name</h1>
             <p class="subtitle">Robotics & Embedded Systems Engineer</p>
-            <p class="tagline">Building intelligent systems that bridge the physical and digital worlds through robotics, AI, and embedded computing.</p>
+            <p class="tagline">Aspiring graduate researcher passionate about autonomous systems, computer vision, and intelligent robotics. Building the future of human-robot collaboration.</p>
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="https://github.com/yourusername" target="_blank" class="btn btn-secondary">GitHub</a>
-                <a href="#contact" class="btn btn-secondary">Resume</a>
+                <a href="#research" class="btn btn-secondary">Research</a>
+                <a href="your-cv.pdf" download class="btn btn-secondary">Download CV</a>
             </div>
         </div>
     </section>
@@ -639,18 +898,18 @@
     <!-- ABOUT SECTION -->
     <section id="about">
         <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">Passionate about robotics, automation, and intelligent systems</p>
+        <p class="section-subtitle">Dedicated robotics engineer seeking advanced research opportunities</p>
         
         <div class="about-content">
             <div class="about-text">
                 <p>
-                    I'm a <strong>Robotics and Embedded Systems</strong> student with a passion for creating intelligent machines that can perceive, reason, and interact with the physical world. My journey began with curiosity about how things work and has evolved into a dedicated pursuit of cutting-edge robotics technology.
+                    I am a <strong>final-year Robotics Engineering student</strong> with a strong foundation in autonomous systems, embedded programming, and AI. My academic journey has been driven by curiosity and a passion for solving real-world problems through intelligent machines.
                 </p>
                 <p>
-                    Currently, I'm focused on autonomous systems, computer vision, and real-time embedded programming. I enjoy tackling complex challenges that require interdisciplinary knowledge spanning mechanical design, electronics, software, and artificial intelligence.
+                    Through hands-on projects, research internships, and collaborative work, I have developed expertise in <strong>ROS/ROS2, computer vision, SLAM, and embedded systems design</strong>. My work has been recognized in multiple competitions and has resulted in one published conference paper.
                 </p>
                 <p>
-                    When I'm not coding or building robots, you'll find me contributing to open-source projects, participating in hackathons, or exploring the latest developments in AI and robotics research.
+                    I am now seeking <strong>Master's opportunities</strong> to deepen my research in autonomous navigation, multi-robot systems, and edge AI deployment, with the goal of contributing to cutting-edge robotics research and eventually pursuing a Ph.D.
                 </p>
             </div>
             
@@ -659,18 +918,51 @@
                 <ul>
                     <li>B.Tech in Robotics Engineering</li>
                     <li>University Name, Expected 2026</li>
-                    <li>GPA: 3.8/4.0</li>
-                    <li>Relevant Coursework: Control Systems, Computer Vision, Machine Learning, Real-Time Operating Systems</li>
+                    <li>GPA: 3.8/4.0 (9.2/10)</li>
+                    <li>Relevant Courses: Control Systems, Computer Vision, Machine Learning, RTOS, Advanced Robotics</li>
                 </ul>
                 
                 <h3 style="margin-top: 2rem;">🔬 Research Interests</h3>
                 <ul>
-                    <li>Autonomous Navigation</li>
-                    <li>SLAM (Simultaneous Localization and Mapping)</li>
+                    <li>Autonomous Navigation & SLAM</li>
+                    <li>Multi-Agent Robotics Systems</li>
+                    <li>Computer Vision & Object Recognition</li>
+                    <li>Edge AI & Resource-Constrained ML</li>
                     <li>Human-Robot Interaction</li>
-                    <li>Edge AI & TinyML</li>
-                    <li>Swarm Robotics</li>
+                    <li>Swarm Intelligence</li>
                 </ul>
+
+                <h3 style="margin-top: 2rem;">📊 Test Scores</h3>
+                <ul>
+                    <li>GRE: 325 (Q: 168, V: 157, AWA: 4.5)</li>
+                    <li>TOEFL: 110 (R:29, L:28, S:26, W:27)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEARCH EXPERIENCE -->
+    <section id="research">
+        <h2 class="section-title">Research Experience</h2>
+        <p class="section-subtitle">Academic research and publications</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Research Intern - Autonomous Systems Lab</h3>
+                <p class="date">June 2024 - Present | University Name</p>
+                <p>Working on multi-robot coordination using reinforcement learning. Developed a distributed decision-making framework for warehouse automation scenarios. Implemented in ROS2 with Gazebo simulation achieving 40% improvement in task completion time.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Published Paper - SLAM Implementation</h3>
+                <p class="date">March 2024 | IEEE Conference</p>
+                <p><strong>"Lightweight SLAM for Resource-Constrained Mobile Robots"</strong> - Presented a novel approach to reduce computational overhead in SLAM algorithms by 35% while maintaining mapping accuracy. Published in IEEE International Conference on Robotics and Automation (ICRA) 2024.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Undergraduate Research Assistant</h3>
+                <p class="date">January 2023 - May 2024 | Robotics Lab</p>
+                <p>Assisted in computer vision research for agricultural robotics. Developed CNN-based crop disease detection system with 92% accuracy. Collected and annotated dataset of 5,000+ images. Presented findings at university symposium.</p>
             </div>
         </div>
     </section>
@@ -678,111 +970,380 @@
     <!-- PROJECTS SECTION -->
     <section id="projects">
         <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">A collection of my robotics and embedded systems work</p>
+        <p class="section-subtitle">Click on any project to view detailed information</p>
         
         <div class="projects-grid">
             <!-- Project 1 -->
-            <div class="project-card">
-                <h3>Autonomous Line-Following Robot</h3>
-                <p>Built a PID-controlled robot using Arduino that autonomously follows lines using infrared sensors. Implemented adaptive speed control and obstacle detection.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Arduino</span>
-                    <span class="tech-tag">C++</span>
-                    <span class="tech-tag">PID Control</span>
-                    <span class="tech-tag">IR Sensors</span>
+            <div class="project-card" onclick="openModal('modal1')">
+                <div class="project-image">
+                    🤖
+                    <!-- Replace with: <img src="project1.gif" alt="Project 1"> -->
                 </div>
-                <div class="project-links">
-                    <a href="https://github.com/yourusername/project1" target="_blank">GitHub →</a>
-                    <a href="#" target="_blank">Demo →</a>
+                <div class="project-info">
+                    <h3>Autonomous SLAM Robot</h3>
+                    <p>Mobile robot with LiDAR-based navigation and real-time mapping capabilities.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ROS2</span>
+                        <span class="tech-tag">LiDAR</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                    <span class="view-details">View Details →</span>
                 </div>
             </div>
 
             <!-- Project 2 -->
-            <div class="project-card">
-                <h3>Computer Vision Object Tracker</h3>
-                <p>Developed a real-time object tracking system using OpenCV and Python. Implemented Kalman filtering for smooth tracking and YOLO for object detection.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">OpenCV</span>
-                    <span class="tech-tag">YOLO</span>
-                    <span class="tech-tag">ROS</span>
+            <div class="project-card" onclick="openModal('modal2')">
+                <div class="project-image">
+                    👁️
+                    <!-- Replace with: <img src="project2.gif" alt="Project 2"> -->
                 </div>
-                <div class="project-links">
-                    <a href="https://github.com/yourusername/project2" target="_blank">GitHub →</a>
-                    <a href="#" target="_blank">Demo →</a>
+                <div class="project-info">
+                    <h3>Real-Time Object Tracker</h3>
+                    <p>Computer vision system for multi-object tracking using deep learning.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">YOLOv8</span>
+                        <span class="tech-tag">PyTorch</span>
+                    </div>
+                    <span class="view-details">View Details →</span>
                 </div>
             </div>
 
             <!-- Project 3 -->
-            <div class="project-card">
-                <h3>Gesture-Controlled Robotic Arm</h3>
-                <p>Created a 6-DOF robotic arm controlled via hand gestures using MediaPipe and inverse kinematics. Achieved sub-centimeter positioning accuracy.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">MediaPipe</span>
-                    <span class="tech-tag">Raspberry Pi</span>
-                    <span class="tech-tag">Servo Control</span>
+            <div class="project-card" onclick="openModal('modal3')">
+                <div class="project-image">
+                    🦾
+                    <!-- Replace with: <img src="project3.gif" alt="Project 3"> -->
                 </div>
-                <div class="project-links">
-                    <a href="https://github.com/yourusername/project3" target="_blank">GitHub →</a>
-                    <a href="#" target="_blank">Demo →</a>
+                <div class="project-info">
+                    <h3>Gesture-Controlled Robotic Arm</h3>
+                    <p>6-DOF arm with computer vision-based gesture control interface.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">MediaPipe</span>
+                        <span class="tech-tag">Arduino</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">IK</span>
+                    </div>
+                    <span class="view-details">View Details →</span>
                 </div>
             </div>
 
             <!-- Project 4 -->
-            <div class="project-card">
-                <h3>IoT Weather Station</h3>
-                <p>Designed an ESP32-based weather monitoring system with cloud connectivity. Displays real-time data on a web dashboard with historical analytics.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">ESP32</span>
-                    <span class="tech-tag">MQTT</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Firebase</span>
+            <div class="project-card" onclick="openModal('modal4')">
+                <div class="project-image">
+                    🚗
+                    <!-- Replace with: <img src="project4.gif" alt="Project 4"> -->
                 </div>
-                <div class="project-links">
-                    <a href="https://github.com/yourusername/project4" target="_blank">GitHub →</a>
-                    <a href="#" target="_blank">Demo →</a>
+                <div class="project-info">
+                    <h3>Self-Driving Mini Car</h3>
+                    <p>Autonomous vehicle with lane detection and obstacle avoidance.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Raspberry Pi</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">PID</span>
+                        <span class="tech-tag">TensorFlow</span>
+                    </div>
+                    <span class="view-details">View Details →</span>
                 </div>
             </div>
 
             <!-- Project 5 -->
-            <div class="project-card">
-                <h3>SLAM Navigation Robot</h3>
-                <p>Implemented Gmapping and AMCL algorithms on ROS for autonomous indoor navigation. Integrated LiDAR and IMU sensor fusion for accurate localization.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">ROS</span>
-                    <span class="tech-tag">LiDAR</span>
-                    <span class="tech-tag">C++</span>
-                    <span class="tech-tag">Gazebo</span>
+            <div class="project-card" onclick="openModal('modal5')">
+                <div class="project-image">
+                    🧠
+                    <!-- Replace with: <img src="project5.gif" alt="Project 5"> -->
                 </div>
-                <div class="project-links">
-                    <a href="https://github.com/yourusername/project5" target="_blank">GitHub →</a>
-                    <a href="#" target="_blank">Demo →</a>
+                <div class="project-info">
+                    <h3>TinyML Gesture Recognition</h3>
+                    <p>Edge AI system for real-time gesture classification on microcontrollers.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">TensorFlow Lite</span>
+                        <span class="tech-tag">Arduino</span>
+                        <span class="tech-tag">IMU</span>
+                        <span class="tech-tag">C++</span>
+                    </div>
+                    <span class="view-details">View Details →</span>
                 </div>
             </div>
 
             <!-- Project 6 -->
-            <div class="project-card">
-                <h3>TinyML Gesture Recognition</h3>
-                <p>Deployed a neural network on Arduino Nano 33 BLE for real-time gesture recognition using accelerometer data. Achieved 95% accuracy with only 20KB memory.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">TensorFlow Lite</span>
-                    <span class="tech-tag">Arduino</span>
-                    <span class="tech-tag">Edge AI</span>
-                    <span class="tech-tag">IMU</span>
+            <div class="project-card" onclick="openModal('modal6')">
+                <div class="project-image">
+                    🌐
+                    <!-- Replace with: <img src="project6.gif" alt="Project 6"> -->
                 </div>
-                <div class="project-links">
-                    <a href="https://github.com/yourusername/project6" target="_blank">GitHub →</a>
-                    <a href="#" target="_blank">Demo →</a>
+                <div class="project-info">
+                    <h3>IoT Smart Greenhouse</h3>
+                    <p>Automated monitoring and control system with cloud integration.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ESP32</span>
+                        <span class="tech-tag">MQTT</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                    <span class="view-details">View Details →</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL TEMPLATES (One per project) -->
+    <!-- Modal 1 -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Autonomous SLAM Robot</h2>
+                <span class="close" onclick="closeModal('modal1')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    🤖
+                    <!-- Replace with: <img src="project1-detail.gif" alt="SLAM Robot Demo"> -->
+                </div>
+                
+                <div class="modal-section">
+                    <h3>📝 Project Overview</h3>
+                    <p>Developed a fully autonomous mobile robot capable of simultaneous localization and mapping (SLAM) in unknown indoor environments. The system uses a 2D LiDAR sensor combined with wheel odometry and IMU data for accurate pose estimation and environment mapping.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🎯 Key Features</h3>
+                    <ul>
+                        <li>Real-time 2D mapping using Gmapping algorithm</li>
+                        <li>AMCL-based localization with particle filter</li>
+                        <li>Dynamic obstacle avoidance using DWA planner</li>
+                        <li>Path planning with A* algorithm</li>
+                        <li>ROS2-based architecture for modularity</li>
+                        <li>Web-based monitoring dashboard</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>⚙️ Technical Implementation</h3>
+                    <p><strong>Hardware:</strong> Raspberry Pi 4, RPLIDAR A1, MPU6050 IMU, motor encoders, differential drive system</p>
+                    <p><strong>Software Stack:</strong> ROS2 Humble, Nav2, Gazebo for simulation, RViz for visualization</p>
+                    <p><strong>Algorithms:</strong> Extended Kalman Filter for sensor fusion, Dijkstra for global planning, DWA for local planning</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>📊 Results & Impact</h3>
+                    <p>Successfully navigated complex indoor environments with 95% accuracy. Reduced mapping time by 30% compared to baseline. Presented at university robotics symposium and won "Best Autonomous System" award.</p>
+                </div>
+
+                <div class="modal-links">
+                    <a href="https://github.com/yourusername/slam-robot" target="_blank" class="btn btn-primary">GitHub Repository</a>
+                    <a href="https://youtu.be/demo" target="_blank" class="btn btn-secondary">Watch Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Real-Time Object Tracker</h2>
+                <span class="close" onclick="closeModal('modal2')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    👁️
+                </div>
+                
+                <div class="modal-section">
+                    <h3>📝 Project Overview</h3>
+                    <p>Built a robust multi-object tracking system using state-of-the-art deep learning models. The system processes video feeds in real-time, detecting and tracking multiple objects across frames with high accuracy even in challenging conditions.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🎯 Key Features</h3>
+                    <ul>
+                        <li>YOLOv8 for real-time object detection</li>
+                        <li>DeepSORT for multi-object tracking</li>
+                        <li>Kalman filter for motion prediction</li>
+                        <li>Support for 80+ object classes</li>
+                        <li>30 FPS processing on standard GPU</li>
+                        <li>Re-identification in case of occlusion</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>⚙️ Technical Implementation</h3>
+                    <p><strong>Deep Learning:</strong> YOLOv8n model, trained on COCO dataset with custom fine-tuning</p>
+                    <p><strong>Tracking Algorithm:</strong> DeepSORT with cosine metric learning for appearance features</p>
+                    <p><strong>Optimization:</strong> TensorRT for inference acceleration, achieved 3x speedup</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>📊 Results & Impact</h3>
+                    <p>Achieved 89% MOTA (Multiple Object Tracking Accuracy) on MOT17 benchmark. Successfully deployed for crowd monitoring in university campus. Code open-sourced with 50+ GitHub stars.</p>
+                </div>
+
+                <div class="modal-links">
+                    <a href="https://github.com/yourusername/object-tracker" target="_blank" class="btn btn-primary">GitHub Repository</a>
+                    <a href="#" target="_blank" class="btn btn-secondary">Research Paper</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Gesture-Controlled Robotic Arm</h2>
+                <span class="close" onclick="closeModal('modal3')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    🦾
+                </div>
+                
+                <div class="modal-section">
+                    <h3>📝 Project Overview</h3>
+                    <p>Created an intuitive human-robot interface using hand gesture recognition. The 6-DOF robotic arm mimics human hand movements in real-time using computer vision and inverse kinematics, enabling natural and intuitive control.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🎯 Key Features</h3>
+                    <ul>
+                        <li>MediaPipe-based hand landmark detection</li>
+                        <li>Real-time inverse kinematics solver</li>
+                        <li>6 degrees of freedom control</li>
+                        <li>Workspace mapping and scaling</li>
+                        <li>Gripper control via pinch gesture</li>
+                        <li>Sub-centimeter positioning accuracy</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>⚙️ Technical Implementation</h3>
+                    <p><strong>Hardware:</strong> 3D-printed structure, 6 servo motors, Arduino Mega, Raspberry Pi 4, webcam</p>
+                    <p><strong>Software:</strong> Python with MediaPipe, OpenCV, custom IK solver using geometric approach</p>
+                    <p><strong>Control:</strong> PID control for smooth servo movement, velocity profiling for natural motion</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>📊 Results & Impact</h3>
+                    <p>Successfully demonstrated pick-and-place tasks with 95% success rate. Won 1st place at National Robotics Competition 2024. Featured in university newsletter and local tech magazine.</p>
+                </div>
+
+                <div class="modal-links">
+                    <a href="https://github.com/yourusername/gesture-arm" target="_blank" class="btn btn-primary">GitHub Repository</a>
+                    <a href="#" target="_blank" class="btn btn-secondary">Video Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals 4-6 (Similar structure) -->
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Self-Driving Mini Car</h2>
+                <span class="close" onclick="closeModal('modal4')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">🚗</div>
+                <div class="modal-section">
+                    <h3>📝 Project Overview</h3>
+                    <p>Complete autonomous vehicle prototype with lane detection, traffic sign recognition, and obstacle avoidance capabilities.</p>
+                </div>
+                <div class="modal-links">
+                    <a href="#" class="btn btn-primary">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>TinyML Gesture Recognition</h2>
+                <span class="close" onclick="closeModal('modal5')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">🧠</div>
+                <div class="modal-section">
+                    <h3>📝 Project Overview</h3>
+                    <p>Deployed neural network on Arduino for real-time gesture recognition using only 20KB of memory.</p>
+                </div>
+                <div class="modal-links">
+                    <a href="#" class="btn btn-primary">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>IoT Smart Greenhouse</h2>
+                <span class="close" onclick="closeModal('modal6')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">🌐</div>
+                <div class="modal-section">
+                    <h3>📝 Project Overview</h3>
+                    <p>Automated plant monitoring system with cloud-based analytics and remote control capabilities.</p>
+                </div>
+                <div class="modal-links">
+                    <a href="#" class="btn btn-primary">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section id="achievements">
+        <h2 class="section-title">Achievements & Awards</h2>
+        <p class="section-subtitle">Recognition for academic and technical excellence</p>
+        
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="icon">🏆</div>
+                <h3>Best Autonomous System Award</h3>
+                <p>Won 1st place at National Robotics Competition 2024 for SLAM robot project</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="icon">📄</div>
+                <h3>Published Research Paper</h3>
+                <p>IEEE ICRA 2024 - "Lightweight SLAM for Resource-Constrained Mobile Robots"</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="icon">💡</div>
+                <h3>Innovation Grant</h3>
+                <p>Received $5,000 research grant from university innovation fund for gesture control project</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="icon">🎓</div>
+                <h3>Dean's List</h3>
+                <p>Consistently on Dean's List for academic excellence (2022-2025)</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="icon">👥</div>
+                <h3>Hackathon Winner</h3>
+                <p>1st place at RoboHacks 2023 - Built autonomous delivery robot in 24 hours</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="icon">🌟</div>
+                <h3>Open Source Contributor</h3>
+                <p>Active contributor to ROS2 community with 5+ merged PRs</p>
             </div>
         </div>
     </section>
 
     <!-- SKILLS SECTION -->
     <section id="skills">
-        <h2 class="section-title">Skills & Technologies</h2>
-        <p class="section-subtitle">Tools and technologies I work with</p>
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">Comprehensive toolkit for robotics development</p>
         
         <div class="skills-container">
             <div class="skill-category">
@@ -806,7 +1367,8 @@
                     <span class="skill-item">ESP32</span>
                     <span class="skill-item">STM32</span>
                     <span class="skill-item">PID Control</span>
-                    <span class="skill-item">RTOS</span>
+                    <span class="skill-item">FreeRTOS</span>
+                    <span class="skill-item">Gazebo</span>
                 </div>
             </div>
 
@@ -819,6 +1381,7 @@
                     <span class="skill-item">YOLO</span>
                     <span class="skill-item">MediaPipe</span>
                     <span class="skill-item">Scikit-learn</span>
+                    <span class="skill-item">TensorRT</span>
                 </div>
             </div>
 
@@ -828,10 +1391,11 @@
                     <span class="skill-item">Git/GitHub</span>
                     <span class="skill-item">Linux</span>
                     <span class="skill-item">Docker</span>
-                    <span class="skill-item">Gazebo</span>
+                    <span class="skill-item">RViz</span>
                     <span class="skill-item">SolidWorks</span>
                     <span class="skill-item">KiCAD</span>
                     <span class="skill-item">MQTT</span>
+                    <span class="skill-item">CMake</span>
                 </div>
             </div>
         </div>
@@ -840,16 +1404,16 @@
     <!-- CONTACT SECTION -->
     <section id="contact">
         <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">Let's connect and collaborate!</p>
+        <p class="section-subtitle">Open to research opportunities and collaborations</p>
         
         <div class="contact-content">
             <p class="contact-text">
-                I'm always interested in hearing about new projects, research opportunities, or collaboration ideas. Whether you have a question or just want to say hi, feel free to reach out!
+                I'm actively seeking <strong>Master's opportunities in Robotics, Computer Science, or related fields</strong> for Fall 2026. I'm particularly interested in research programs focusing on autonomous systems, SLAM, and human-robot interaction. Feel free to reach out for collaborations, questions, or just to connect!
             </p>
             
             <div class="contact-links">
-                <a href="mailto:your.email@example.com" class="contact-link">
-                    <strong>📧 Email:</strong> your.email@example.com
+                <a href="mailto:your.email@university.edu" class="contact-link">
+                    <strong>📧 Email:</strong> your.email@university.edu
                 </a>
                 <a href="https://github.com/yourusername" target="_blank" class="contact-link">
                     <strong>💻 GitHub:</strong> github.com/yourusername
@@ -857,14 +1421,17 @@
                 <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">
                     <strong>💼 LinkedIn:</strong> linkedin.com/in/yourprofile
                 </a>
+                <a href="https://scholar.google.com/yourprofile" target="_blank" class="contact-link">
+                    <strong>🎓 Google Scholar:</strong> View Publications
+                </a>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p>Designed & Built by Your Name</p>
-        <p>&copy; 2025 | <a href="https://github.com/yourusername" target="_blank">View Source Code</a></p>
+        <p>Designed & Built by Your Name | © 2025</p>
+        <p><a href="https://github.com/yourusername/portfolio" target="_blank">View Source Code</a> | Last Updated: January 2025</p>
     </footer>
 
     <!-- JAVASCRIPT -->
@@ -896,3 +1463,37 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.style.display = 'none';
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
