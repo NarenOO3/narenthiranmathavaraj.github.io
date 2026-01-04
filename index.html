@@ -449,6 +449,73 @@
             z-index: 1;
         }
 
+        .hero-profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            margin: 0 auto 2rem;
+            border: 5px solid var(--bg-dark);
+            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+            overflow: hidden;
+            animation: profileFadeIn 1s ease-out;
+        }
+
+        @keyframes profileFadeIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.8) translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .hero-profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 217, 255, 0.1);
+            border: 2px solid rgba(0, 217, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 217, 255, 0.4);
+        }
+
+        .social-icon span {
+            position: relative;
+            z-index: 1;
+        }
+
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
@@ -1081,6 +1148,21 @@
                 grid-template-columns: 1fr;
             }
 
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+                font-size: 4rem;
+            }
+
+            .timeline-content {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-photo {
+                width: 100%;
+                height: 250px;
+            }
+
             .projects-grid {
                 grid-template-columns: 1fr;
             }
@@ -1175,9 +1257,32 @@
     <!-- HERO SECTION -->
     <section class="hero" id="home">
         <div class="hero-content">
+            <!-- Profile Photo in Hero -->
+            <div class="hero-profile-photo">
+                👤
+                <!-- Replace with: <img src="images/profile.jpg" alt="Your Name"> -->
+            </div>
+            
             <h1>Your Name</h1>
             <p class="subtitle">Robotics & Embedded Systems Engineer</p>
             <p class="tagline">Aspiring graduate researcher passionate about autonomous systems, computer vision, and intelligent robotics. Building the future of human-robot collaboration.</p>
+            
+            <!-- Social Links in Hero -->
+            <div class="hero-social-links">
+                <a href="https://github.com/yourusername" target="_blank" title="GitHub" class="social-icon">
+                    <span>💻</span>
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn" class="social-icon">
+                    <span>💼</span>
+                </a>
+                <a href="https://scholar.google.com/yourprofile" target="_blank" title="Google Scholar" class="social-icon">
+                    <span>🎓</span>
+                </a>
+                <a href="mailto:your.email@university.edu" title="Email" class="social-icon">
+                    <span>📧</span>
+                </a>
+            </div>
+            
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">View Projects</a>
                 <a href="#research" class="btn btn-secondary">Research</a>
@@ -1193,19 +1298,6 @@
         
         <div class="about-content">
             <div class="about-text">
-                <!-- Profile Photo -->
-                <div class="profile-photo-container">
-                    <div class="profile-photo">
-                        👤
-                        <!-- Replace with: <img src="images/profile.jpg" alt="Your Name"> -->
-                    </div>
-                    <div class="profile-links">
-                        <a href="https://github.com/yourusername" target="_blank" title="GitHub">💻</a>
-                        <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn">💼</a>
-                        <a href="https://scholar.google.com/yourprofile" target="_blank" title="Google Scholar">🎓</a>
-                    </div>
-                </div>
-
                 <p>
                     I am a <strong>final-year Robotics Engineering student</strong> with a strong foundation in autonomous systems, embedded programming, and AI. My academic journey has been driven by curiosity and a passion for solving real-world problems through intelligent machines.
                 </p>
@@ -2034,6 +2126,21 @@
                 lightbox.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
+        });
+
+        // Timeline photo click to lightbox
+        document.querySelectorAll('.timeline-photo').forEach(photo => {
+            photo.addEventListener('click', function() {
+                const img = this.querySelector('img');
+                const caption = this.querySelector('.timeline-photo-caption');
+                
+                if (img && lightbox) {
+                    lightbox.style.display = 'block';
+                    lightboxImg.src = img.src;
+                    lightboxCaption.textContent = caption ? caption.textContent : '';
+                    document.body.style.overflow = 'hidden';
+                }
+            });
         });
     </script>
 </body>
