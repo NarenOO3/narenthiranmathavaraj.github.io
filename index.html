@@ -3,311 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Robotics and Embedded Systems Portfolio - Master's Application">
-    <title>Your Name | Robotics Engineer Portfolio</title>
-    
-    <!-- Google Fonts -->
+    <title>Your Name | Robotics Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    
     <style>
-        /* ========================================
-           PROFILE PHOTO IN ABOUT SECTION
-        ======================================== */
-        .profile-photo-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .profile-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            margin-bottom: 1rem;
-            border: 4px solid var(--bg-dark);
-            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-
-        .profile-photo:hover {
-            transform: scale(1.05);
-        }
-
-        .profile-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .profile-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .profile-links a {
-            width: 45px;
-            height: 45px;
-            background: var(--bg-card);
-            border: 1px solid rgba(0, 217, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .profile-links a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 217, 255, 0.4);
-        }
-
-        /* ========================================
-           ENHANCED TIMELINE WITH PHOTOS
-        ======================================== */
-        .timeline {
-            position: relative;
-            padding-left: 3rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            padding: 0;
-            background: transparent;
-            border: none;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -3.6rem;
-            top: 1.5rem;
-            width: 16px;
-            height: 16px;
-            background: var(--primary);
-            border-radius: 50%;
-            border: 4px solid var(--bg-dark);
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.6);
-            z-index: 1;
-        }
-
-        .timeline-content {
-            display: grid;
-            grid-template-columns: 1fr 200px;
-            gap: 2rem;
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 217, 255, 0.1);
-            transition: all 0.3s;
-        }
-
-        .timeline-content:hover {
-            border-color: var(--primary);
-            transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(0, 217, 255, 0.2);
-        }
-
-        .timeline-text h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .timeline-text .date {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            font-family: var(--font-mono);
-        }
-
-        .timeline-text p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .timeline-photo {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg, #1a1f3a 0%, #2a2f4a 100%);
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--text-secondary);
-            overflow: hidden;
-            border: 2px solid rgba(0, 217, 255, 0.2);
-            transition: all 0.3s;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .timeline-photo:hover {
-            border-color: var(--primary);
-            transform: scale(1.05);
-        }
-
-        .timeline-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .timeline-photo-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.8);
-            color: var(--text-primary);
-            padding: 0.5rem;
-            font-size: 0.8rem;
-            text-align: center;
-        }
-
-        /* ========================================
-           PHOTO GALLERY
-        ======================================== */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            background: var(--bg-dark);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 217, 255, 0.1);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
-            border-color: var(--primary);
-        }
-
-        .gallery-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #1a1f3a 0%, #2a2f4a 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--text-secondary);
-            overflow: hidden;
-        }
-
-        .gallery-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover .gallery-image img {
-            transform: scale(1.05);
-        }
-
-        .gallery-caption {
-            padding: 1.5rem;
-        }
-
-        .gallery-caption h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .gallery-caption p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Lightbox for Full-Size Images */
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 3000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            animation: fadeIn 0.3s;
-        }
-
-        .lightbox-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 85vh;
-            margin-top: 3%;
-            animation: zoomIn 0.3s;
-        }
-
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            color: var(--text-primary);
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .lightbox-close:hover {
-            color: var(--primary);
-        }
-
-        #lightbox-caption {
-            text-align: center;
-            color: var(--text-secondary);
-            padding: 1rem;
-            font-size: 1.1rem;
-        }
-
-        /* ========================================
-           CSS RESET & BASE STYLES
-        ======================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         :root {
             --primary: #00d9ff;
             --primary-dark: #00a8cc;
@@ -319,926 +19,199 @@
             --accent: #7c3aed;
             --font-main: 'Inter', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
-            --section-padding: 80px 20px;
-            --container-max: 1200px;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* ========================================
-           NAVIGATION
-        ======================================== */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 14, 39, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 2rem;
-            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
-        }
-
-        nav .container {
-            max-width: var(--container-max);
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            font-family: var(--font-mono);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 4px;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--primary);
-            transition: 0.3s;
-        }
-
-        /* ========================================
-           HERO SECTION
-        ======================================== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: var(--section-padding);
-            padding-top: 100px;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1f3a 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
-            top: -250px;
-            right: -250px;
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
-        .hero-content {
-            max-width: 800px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-profile-photo {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            margin: 0 auto 2rem;
-            border: 5px solid var(--bg-dark);
-            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
-            overflow: hidden;
-            animation: profileFadeIn 1s ease-out;
-        }
-
-        @keyframes profileFadeIn {
-            from { 
-                opacity: 0;
-                transform: scale(0.8) translateY(20px);
-            }
-            to { 
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        .hero-profile-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 217, 255, 0.1);
-            border: 2px solid rgba(0, 217, 255, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            text-decoration: none;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .social-icon:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 217, 255, 0.4);
-        }
-
-        .social-icon span {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero .subtitle {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            font-family: var(--font-mono);
-        }
-
-        .hero .tagline {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--bg-dark);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 217, 255, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: var(--bg-dark);
-            transform: translateY(-2px);
-        }
-
-        /* ========================================
-           SECTION STYLES
-        ======================================== */
-        section {
-            padding: var(--section-padding);
-            max-width: var(--container-max);
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            position: relative;
-            display: inline-block;
-            width: 100%;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-        }
-
-        /* ========================================
-           ABOUT SECTION
-        ======================================== */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .about-text {
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text strong {
-            color: var(--primary);
-        }
-
-        .about-details {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 217, 255, 0.1);
-        }
-
-        .about-details h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .about-details ul {
-            list-style: none;
-            color: var(--text-secondary);
-        }
-
-        .about-details li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .about-details li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* ========================================
-           PROJECTS SECTION WITH IMAGES & MODALS
-        ======================================== */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 217, 255, 0.1);
-            transition: all 0.3s;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
-            border-color: var(--primary);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 220px;
-            background: linear-gradient(135deg, #1a1f3a 0%, #2a2f4a 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-size: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .project-info {
-            padding: 1.5rem;
-        }
-
-        .project-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-            font-size: 1.3rem;
-        }
-
-        .project-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .tech-tag {
-            background: rgba(0, 217, 255, 0.1);
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-family: var(--font-mono);
-        }
-
-        .view-details {
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* ========================================
-           MODAL POPUP
-        ======================================== */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background: var(--bg-card);
-            margin: 3% auto;
-            padding: 0;
-            border: 1px solid var(--primary);
-            border-radius: 12px;
-            width: 90%;
-            max-width: 900px;
-            max-height: 85vh;
-            overflow-y: auto;
-            animation: slideDown 0.3s;
-            position: relative;
-        }
-
-        @keyframes slideDown {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .modal-header {
-            background: var(--bg-dark);
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-header h2 {
-            color: var(--primary);
-            font-size: 1.8rem;
-        }
-
-        .close {
-            color: var(--text-secondary);
-            font-size: 2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s;
-            line-height: 1;
-        }
-
-        .close:hover {
-            color: var(--primary);
-        }
-
-        .modal-body {
-            padding: 2rem;
-        }
-
-        .modal-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #1a1f3a 0%, #2a2f4a 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2rem;
-            color: var(--text-secondary);
-            font-size: 5rem;
-        }
-
-        .modal-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .modal-section {
-            margin-bottom: 2rem;
-        }
-
-        .modal-section h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .modal-section p, .modal-section ul {
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .modal-section ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .modal-section li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .modal-section li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        .modal-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        /* ========================================
-           RESEARCH & ACHIEVEMENTS
-        ======================================== */
-        .timeline {
-            position: relative;
-            padding-left: 3rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--primary);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--bg-card);
-            border-radius: 8px;
-            border: 1px solid rgba(0, 217, 255, 0.1);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -3.5rem;
-            top: 1.5rem;
-            width: 12px;
-            height: 12px;
-            background: var(--primary);
-            border-radius: 50%;
-            border: 3px solid var(--bg-dark);
-        }
-
-        .timeline-item h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-item .date {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            font-family: var(--font-mono);
-        }
-
-        .timeline-item p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* ========================================
-           ACHIEVEMENTS GRID
-        ======================================== */
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .achievement-card {
-            background: var(--bg-card);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 217, 255, 0.1);
-            transition: all 0.3s;
-        }
-
-        .achievement-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .achievement-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .achievement-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .achievement-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        /* ========================================
-           SKILLS SECTION
-        ======================================== */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 217, 255, 0.1);
-            transition: all 0.3s;
-        }
-
-        .skill-category:hover {
-            border-color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .skill-category h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-category h3::before {
-            content: '⚡';
-            font-size: 1.5rem;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .skill-item {
-            background: rgba(124, 58, 237, 0.1);
-            color: var(--text-primary);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(124, 58, 237, 0.3);
-            transition: all 0.3s;
-        }
-
-        .skill-item:hover {
-            background: rgba(124, 58, 237, 0.2);
-            transform: scale(1.05);
-        }
-
-        /* ========================================
-           CONTACT SECTION
-        ======================================== */
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-text {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .contact-link {
-            background: var(--bg-card);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 217, 255, 0.1);
-            text-decoration: none;
-            color: var(--text-primary);
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .contact-link:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--primary);
-            transform: translateX(5px);
-        }
-
-        .contact-link strong {
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        /* ========================================
-           FOOTER
-        ======================================== */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: var(--bg-card);
-            color: var(--text-secondary);
-            border-top: 1px solid rgba(0, 217, 255, 0.1);
-        }
-
-        footer p {
-            margin-bottom: 0.5rem;
-        }
-
-        footer a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        /* ========================================
-           RESPONSIVE DESIGN
-        ======================================== */
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-main); background: var(--bg-dark); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(10, 14, 39, 0.95); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 2rem; border-bottom: 1px solid rgba(0, 217, 255, 0.1); }
+        nav .container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); font-family: var(--font-mono); }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: 0.3s; position: relative; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--primary); transition: 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 4px; }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--primary); }
+
+        /* Hero Section - Side Aligned */
+        .hero { min-height: 100vh; display: grid; grid-template-columns: 400px 1fr; gap: 4rem; align-items: center; padding: 80px 20px; padding-top: 100px; background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1f3a 100%); max-width: 1200px; margin: 0 auto; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); animation: pulse 4s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; } 50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; } }
+        .hero-left { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+        .hero-profile-photo { width: 280px; height: 280px; border-radius: 20px; background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center; font-size: 8rem; margin-bottom: 2rem; border: 5px solid var(--bg-dark); box-shadow: 0 20px 60px rgba(0, 217, 255, 0.4); overflow: hidden; animation: profileFadeIn 1s; }
+        @keyframes profileFadeIn { from { opacity: 0; transform: scale(0.8) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .hero-profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-social-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .social-icon { width: 55px; height: 55px; background: rgba(0, 217, 255, 0.1); border: 2px solid rgba(0, 217, 255, 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; transition: 0.3s; }
+        .social-icon:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0, 217, 255, 0.4); }
+        .hero-content { position: relative; z-index: 1; text-align: left; }
+        .hero h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.1; }
+        .hero .subtitle { font-size: 1.4rem; color: var(--text-secondary); margin-bottom: 1.5rem; font-family: var(--font-mono); }
+        .hero .tagline { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.7; }
+        .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn { padding: 0.8rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: 0.3s; display: inline-block; }
+        .btn-primary { background: var(--primary); color: var(--bg-dark); }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 217, 255, 0.3); }
+        .btn-secondary { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-secondary:hover { background: var(--primary); color: var(--bg-dark); transform: translateY(-2px); }
+
+        /* Sections */
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 2.5rem; margin-bottom: 1rem; text-align: center; position: relative; display: inline-block; width: 100%; }
+        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--primary); border-radius: 2px; }
+        .section-subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.1rem; }
+
+        /* About Section - Side Aligned */
+        .about-content { display: grid; grid-template-columns: 320px 1fr; gap: 4rem; align-items: start; }
+        .about-left { position: sticky; top: 100px; }
+        .profile-photo-container { display: flex; flex-direction: column; align-items: center; }
+        .profile-photo { width: 240px; height: 240px; border-radius: 16px; background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center; font-size: 6rem; margin-bottom: 1.5rem; border: 4px solid var(--bg-dark); box-shadow: 0 15px 40px rgba(0, 217, 255, 0.3); overflow: hidden; transition: 0.3s; }
+        .profile-photo:hover { transform: scale(1.03); }
+        .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+        .profile-links a { width: 45px; height: 45px; background: var(--bg-card); border: 1px solid rgba(0, 217, 255, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; text-decoration: none; transition: 0.3s; }
+        .profile-links a:hover { background: var(--primary); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 217, 255, 0.4); }
+        .about-right { display: flex; flex-direction: column; gap: 2rem; }
+        .about-text { color: var(--text-secondary); line-height: 1.8; }
+        .about-text p { margin-bottom: 1.5rem; }
+        .about-text strong { color: var(--primary); }
+        .about-details { background: var(--bg-card); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(0, 217, 255, 0.1); transition: 0.3s; }
+        .about-details:hover { border-color: var(--primary); transform: translateX(5px); }
+        .about-details h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem; }
+        .about-details ul { list-style: none; color: var(--text-secondary); }
+        .about-details li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; }
+        .about-details li::before { content: '▹'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+        /* Timeline */
+        .timeline { position: relative; padding-left: 3rem; }
+        .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--primary), var(--accent)); }
+        .timeline-item { position: relative; margin-bottom: 3rem; }
+        .timeline-item::before { content: ''; position: absolute; left: -3.6rem; top: 1.5rem; width: 16px; height: 16px; background: var(--primary); border-radius: 50%; border: 4px solid var(--bg-dark); box-shadow: 0 0 20px rgba(0, 217, 255, 0.6); }
+        .timeline-content { display: grid; grid-template-columns: 1fr 200px; gap: 2rem; background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid rgba(0, 217, 255, 0.1); transition: 0.3s; }
+        .timeline-content:hover { border-color: var(--primary); transform: translateX(5px); box-shadow: 0 5px 20px rgba(0, 217, 255, 0.2); }
+        .timeline-text h3 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .timeline-text .date { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem; font-family: var(--font-mono); }
+        .timeline-text p { color: var(--text-secondary); line-height: 1.7; }
+        .timeline-photo { width: 200px; height: 200px; background: linear-gradient(135deg, #1a1f3a, #2a2f4a); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: var(--text-secondary); overflow: hidden; border: 2px solid rgba(0, 217, 255, 0.2); transition: 0.3s; cursor: pointer; position: relative; }
+        .timeline-photo:hover { border-color: var(--primary); transform: scale(1.05); }
+        .timeline-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Projects */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .project-card { background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 217, 255, 0.1); transition: 0.3s; cursor: pointer; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2); border-color: var(--primary); }
+        .project-image { width: 100%; height: 220px; background: linear-gradient(135deg, #1a1f3a, #2a2f4a); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: var(--text-secondary); overflow: hidden; }
+        .project-image img { width: 100%; height: 100%; object-fit: cover; }
+        .project-info { padding: 1.5rem; }
+        .project-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.3rem; }
+        .project-card p { color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6; font-size: 0.95rem; }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+        .tech-tag { background: rgba(0, 217, 255, 0.1); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-family: var(--font-mono); }
+        .view-details { color: var(--primary); font-weight: 600; font-size: 0.9rem; }
+
+        /* Modal */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); }
+        .modal-content { background: var(--bg-card); margin: 3% auto; padding: 0; border: 1px solid var(--primary); border-radius: 12px; width: 90%; max-width: 900px; max-height: 85vh; overflow-y: auto; }
+        .modal-header { background: var(--bg-dark); padding: 1.5rem 2rem; border-bottom: 1px solid rgba(0, 217, 255, 0.1); display: flex; justify-content: space-between; align-items: center; }
+        .modal-header h2 { color: var(--primary); font-size: 1.8rem; }
+        .close { color: var(--text-secondary); font-size: 2rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .close:hover { color: var(--primary); }
+        .modal-body { padding: 2rem; }
+        .modal-image { width: 100%; height: 300px; background: linear-gradient(135deg, #1a1f3a, #2a2f4a); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; font-size: 5rem; color: var(--text-secondary); }
+        .modal-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+        .modal-section { margin-bottom: 2rem; }
+        .modal-section h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem; }
+        .modal-section p, .modal-section ul { color: var(--text-secondary); line-height: 1.8; }
+        .modal-section ul { list-style: none; }
+        .modal-section li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; }
+        .modal-section li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); }
+        .modal-links { display: flex; gap: 1rem; margin-top: 2rem; }
+
+        /* Achievements */
+        .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .achievement-card { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(0, 217, 255, 0.1); transition: 0.3s; }
+        .achievement-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+        .achievement-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .achievement-card h3 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .achievement-card p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        /* Gallery */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .gallery-item { background: var(--bg-dark); border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 217, 255, 0.1); transition: 0.3s; cursor: pointer; }
+        .gallery-item:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3); border-color: var(--primary); }
+        .gallery-image { width: 100%; height: 250px; background: linear-gradient(135deg, #1a1f3a, #2a2f4a); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: var(--text-secondary); }
+        .gallery-image img { width: 100%; height: 100%; object-fit: cover; }
+        .gallery-caption { padding: 1.5rem; }
+        .gallery-caption h4 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .gallery-caption p { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* Skills */
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .skill-category { background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid rgba(0, 217, 255, 0.1); transition: 0.3s; }
+        .skill-category:hover { border-color: var(--primary); transform: translateY(-3px); }
+        .skill-category h3 { color: var(--primary); margin-bottom: 1.5rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem; }
+        .skill-category h3::before { content: '⚡'; font-size: 1.5rem; }
+        .skills-list { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+        .skill-item { background: rgba(124, 58, 237, 0.1); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; border: 1px solid rgba(124, 58, 237, 0.3); transition: 0.3s; }
+        .skill-item:hover { background: rgba(124, 58, 237, 0.2); transform: scale(1.05); }
+
+        /* Contact */
+        .contact-content { max-width: 600px; margin: 0 auto; text-align: center; }
+        .contact-text { color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.8; }
+        .contact-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+        .contact-link { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(0, 217, 255, 0.1); text-decoration: none; color: var(--text-primary); transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 1rem; }
+        .contact-link:hover { background: var(--bg-card-hover); border-color: var(--primary); transform: translateX(5px); }
+        .contact-link strong { color: var(--primary); font-size: 1.1rem; }
+
+        /* Footer */
+        footer { text-align: center; padding: 2rem; background: var(--bg-card); color: var(--text-secondary); border-top: 1px solid rgba(0, 217, 255, 0.1); }
+        footer p { margin-bottom: 0.5rem; }
+        footer a { color: var(--primary); text-decoration: none; }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background: var(--bg-card);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                padding: 2rem 0;
-                border-top: 1px solid rgba(0, 217, 255, 0.1);
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .profile-photo {
-                width: 150px;
-                height: 150px;
-                font-size: 4rem;
-            }
-
-            .timeline-content {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline-photo {
-                width: 100%;
-                height: 250px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .modal-content {
-                width: 95%;
-                margin: 5% auto;
-            }
-
-            .timeline {
-                padding-left: 2rem;
-            }
-
-            .timeline-item::before {
-                left: -2.5rem;
-            }
+            .hero { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+            .hero-left { align-items: center; }
+            .hero-profile-photo { width: 220px; height: 220px; font-size: 6rem; }
+            .hero-content { text-align: center; }
+            .cta-buttons { justify-content: center; }
+            .about-content { grid-template-columns: 1fr; gap: 2rem; }
+            .about-left { position: static; }
+            .profile-photo { width: 180px; height: 180px; font-size: 5rem; }
+            .nav-links { position: fixed; left: -100%; top: 70px; flex-direction: column; background: var(--bg-card); width: 100%; text-align: center; transition: 0.3s; padding: 2rem 0; border-top: 1px solid rgba(0, 217, 255, 0.1); }
+            .nav-links.active { left: 0; }
+            .menu-toggle { display: flex; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero .subtitle { font-size: 1.1rem; }
+            .timeline-content { grid-template-columns: 1fr; }
+            .timeline-photo { width: 100%; height: 250px; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 2rem; }
+            .modal-content { width: 95%; margin: 5% auto; }
+            .timeline { padding-left: 2rem; }
+            .timeline-item::before { left: -2.5rem; }
         }
 
         @media (max-width: 480px) {
-            :root {
-                --section-padding: 60px 15px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .modal-header {
-                padding: 1rem;
-            }
-
-            .modal-body {
-                padding: 1rem;
-            }
+            .hero h1 { font-size: 2rem; }
+            .cta-buttons { flex-direction: column; }
+            .btn { width: 100%; }
         }
 
-        /* Scrollbar Styling */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-dark);
-        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
     </style>
 </head>
 <body>
-    <!-- NAVIGATION -->
     <nav>
         <div class="container">
             <div class="logo">&lt;/YourName&gt;</div>
             <div class="menu-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -1254,894 +227,81 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <!-- Profile Photo in Hero -->
-            <div class="hero-profile-photo">
-                👤
-                <!-- Replace with: <img src="images/profile.jpg" alt="Your Name"> -->
+        <div class="hero-left">
+            <div class="hero-profile-photo">👤</div>
+            <div class="hero-social-links">
+                <a href="https://github.com/yourusername" class="social-icon"><span>💻</span></a>
+                <a href="https://linkedin.com/in/yourprofile" class="social-icon"><span>💼</span></a>
+                <a href="https://scholar.google.com/yourprofile" class="social-icon"><span>🎓</span></a>
+                <a href="mailto:your.email@university.edu" class="social-icon"><span>📧</span></a>
             </div>
-            
+        </div>
+        <div class="hero-content">
             <h1>Your Name</h1>
             <p class="subtitle">Robotics & Embedded Systems Engineer</p>
             <p class="tagline">Aspiring graduate researcher passionate about autonomous systems, computer vision, and intelligent robotics. Building the future of human-robot collaboration.</p>
-            
-            <!-- Social Links in Hero -->
-            <div class="hero-social-links">
-                <a href="https://github.com/yourusername" target="_blank" title="GitHub" class="social-icon">
-                    <span>💻</span>
-                </a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn" class="social-icon">
-                    <span>💼</span>
-                </a>
-                <a href="https://scholar.google.com/yourprofile" target="_blank" title="Google Scholar" class="social-icon">
-                    <span>🎓</span>
-                </a>
-                <a href="mailto:your.email@university.edu" title="Email" class="social-icon">
-                    <span>📧</span>
-                </a>
-            </div>
-            
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">View Projects</a>
                 <a href="#research" class="btn btn-secondary">Research</a>
-                <a href="your-cv.pdf" download class="btn btn-secondary">Download CV</a>
+                <a href="your-cv.pdf" class="btn btn-secondary">Download CV</a>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section id="about">
         <h2 class="section-title">About Me</h2>
         <p class="section-subtitle">Dedicated robotics engineer seeking advanced research opportunities</p>
-        
         <div class="about-content">
-            <div class="about-text">
-                <p>
-                    I am a <strong>final-year Robotics Engineering student</strong> with a strong foundation in autonomous systems, embedded programming, and AI. My academic journey has been driven by curiosity and a passion for solving real-world problems through intelligent machines.
-                </p>
-                <p>
-                    Through hands-on projects, research internships, and collaborative work, I have developed expertise in <strong>ROS/ROS2, computer vision, SLAM, and embedded systems design</strong>. My work has been recognized in multiple competitions and has resulted in one published conference paper.
-                </p>
-                <p>
-                    I am now seeking <strong>Master's opportunities</strong> to deepen my research in autonomous navigation, multi-robot systems, and edge AI deployment, with the goal of contributing to cutting-edge robotics research and eventually pursuing a Ph.D.
-                </p>
+            <div class="about-left">
+                <div class="profile-photo-container">
+                    <div class="profile-photo">👤</div>
+                    <div class="profile-links">
+                        <a href="https://github.com/yourusername">💻</a>
+                        <a href="https://linkedin.com/in/yourprofile">💼</a>
+                        <a href="https://scholar.google.com/yourprofile">🎓</a>
+                        <a href="mailto:your.email@university.edu">📧</a>
+                    </div>
+                </div>
             </div>
-            
-            <div class="about-details">
-                <h3>🎓 Academic Background</h3>
-                <ul>
-                    <li>B.Tech in Robotics Engineering</li>
-                    <li>University Name, Expected 2026</li>
-                    <li>GPA: 3.8/4.0 (9.2/10)</li>
-                    <li>Relevant Courses: Control Systems, Computer Vision, Machine Learning, RTOS, Advanced Robotics</li>
-                </ul>
-                
-                <h3 style="margin-top: 2rem;">🔬 Research Interests</h3>
-                <ul>
-                    <li>Autonomous Navigation & SLAM</li>
-                    <li>Multi-Agent Robotics Systems</li>
-                    <li>Computer Vision & Object Recognition</li>
-                    <li>Edge AI & Resource-Constrained ML</li>
-                    <li>Human-Robot Interaction</li>
-                    <li>Swarm Intelligence</li>
-                </ul>
-
-                <h3 style="margin-top: 2rem;">📊 Test Scores</h3>
-                <ul>
-                    <li>GRE: 325 (Q: 168, V: 157, AWA: 4.5)</li>
-                    <li>TOEFL: 110 (R:29, L:28, S:26, W:27)</li>
-                </ul>
+            <div class="about-right">
+                <div class="about-text">
+                    <p>I am a <strong>final-year Robotics Engineering student</strong> with a strong foundation in autonomous systems, embedded programming, and AI. My academic journey has been driven by curiosity and a passion for solving real-world problems through intelligent machines.</p>
+                    <p>Through hands-on projects, research internships, and collaborative work, I have developed expertise in <strong>ROS/ROS2, computer vision, SLAM, and embedded systems design</strong>. My work has been recognized in multiple competitions and has resulted in one published conference paper.</p>
+                    <p>I am now seeking <strong>Master's opportunities</strong> to deepen my research in autonomous navigation, multi-robot systems, and edge AI deployment, with the goal of contributing to cutting-edge robotics research and eventually pursuing a Ph.D.</p>
+                </div>
+                <div class="about-details">
+                    <h3>🎓 Academic Background</h3>
+                    <ul>
+                        <li>B.Tech in Robotics Engineering</li>
+                        <li>University Name, Expected 2026</li>
+                        <li>GPA: 3.8/4.0 (9.2/10)</li>
+                        <li>Relevant Courses: Control Systems, Computer Vision, Machine Learning, RTOS, Advanced Robotics</li>
+                    </ul>
+                    <h3 style="margin-top: 2rem;">🔬 Research Interests</h3>
+                    <ul>
+                        <li>Autonomous Navigation & SLAM</li>
+                        <li>Multi-Agent Robotics Systems</li>
+                        <li>Computer Vision & Object Recognition</li>
+                        <li>Edge AI & Resource-Constrained ML</li>
+                        <li>Human-Robot Interaction</li>
+                        <li>Swarm Intelligence</li>
+                    </ul>
+                    <h3 style="margin-top: 2rem;">📊 Test Scores</h3>
+                    <ul>
+                        <li>GRE: 325 (Q: 168, V: 157, AWA: 4.5)</li>
+                        <li>TOEFL: 110 (R:29, L:28, S:26, W:27)</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- RESEARCH EXPERIENCE -->
     <section id="research">
         <h2 class="section-title">Research & Professional Journey</h2>
         <p class="section-subtitle">Academic research, publications, and milestones with visual documentation</p>
-        
         <div class="timeline">
-            <!-- Timeline Item 1 -->
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-text">
-                        <h3>Research Intern - Autonomous Systems Lab</h3>
-                        <p class="date">June 2024 - Present | University Name</p>
-                        <p>Working on multi-robot coordination using reinforcement learning. Developed a distributed decision-making framework for warehouse automation scenarios. Implemented in ROS2 with Gazebo simulation achieving 40% improvement in task completion time.</p>
-                    </div>
-                    <div class="timeline-photo">
-                        🔬
-                        <!-- Replace with: <img src="images/research-lab.jpg" alt="Research Lab Work"> -->
-                        <div class="timeline-photo-caption">Research lab setup</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Timeline Item 2 -->
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-text">
-                        <h3>Published Paper - IEEE ICRA 2024</h3>
-                        <p class="date">March 2024 | San Francisco, CA</p>
-                        <p><strong>"Lightweight SLAM for Resource-Constrained Mobile Robots"</strong> - Presented a novel approach to reduce computational overhead in SLAM algorithms by 35% while maintaining mapping accuracy. Received excellent feedback from robotics researchers worldwide.</p>
-                    </div>
-                    <div class="timeline-photo">
-                        📊
-                        <!-- Replace with: <img src="images/icra-presentation.jpg" alt="ICRA Presentation"> -->
-                        <div class="timeline-photo-caption">Presenting at ICRA 2024</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Timeline Item 3 -->
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-text">
-                        <h3>Best Autonomous System Award</h3>
-                        <p class="date">January 2024 | National Robotics Competition</p>
-                        <p>Won 1st place among 50+ teams for SLAM-based autonomous navigation robot. Demonstrated superior mapping accuracy and robust obstacle avoidance in complex environments. Featured in university newsletter.</p>
-                    </div>
-                    <div class="timeline-photo">
-                        🏆
-                        <!-- Replace with: <img src="images/award-ceremony.jpg" alt="Award Ceremony"> -->
-                        <div class="timeline-photo-caption">Receiving the award</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Timeline Item 4 -->
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-text">
-                        <h3>Robotics Workshop Instructor</h3>
-                        <p class="date">September 2023 | University Workshop Series</p>
-                        <p>Conducted intensive 3-day workshop on ROS2 and autonomous navigation for 35+ students. Covered topics including sensor integration, SLAM implementation, and path planning. Received 4.8/5.0 average rating from participants.</p>
-                    </div>
-                    <div class="timeline-photo">
-                        🎓
-                        <!-- Replace with: <img src="images/workshop-teaching.jpg" alt="Teaching Workshop"> -->
-                        <div class="timeline-photo-caption">Teaching ROS2 workshop</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Timeline Item 5 -->
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-text">
-                        <h3>Undergraduate Research Assistant</h3>
-                        <p class="date">January 2023 - May 2024 | Robotics Lab</p>
-                        <p>Assisted in computer vision research for agricultural robotics. Developed CNN-based crop disease detection system with 92% accuracy. Collected and annotated dataset of 5,000+ images. Presented findings at university symposium.</p>
-                    </div>
-                    <div class="timeline-photo">
-                        🌱
-                        <!-- Replace with: <img src="images/agri-robot.jpg" alt="Agricultural Robot"> -->
-                        <div class="timeline-photo-caption">Agricultural robotics project</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Timeline Item 6 -->
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-text">
-                        <h3>RoboHacks 2023 - First Place</h3>
-                        <p class="date">November 2023 | 24-Hour Hackathon</p>
-                        <p>Led team of 4 to build autonomous delivery robot from scratch in 24 hours. Implemented computer vision-based navigation and package detection. Won 1st place among 30 teams and $5,000 prize.</p>
-                    </div>
-                    <div class="timeline-photo">
-                        🚀
-                        <!-- Replace with: <img src="images/hackathon-win.jpg" alt="Hackathon Victory"> -->
-                        <div class="timeline-photo-caption">Team celebrating victory</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">Click on any project to view detailed information</p>
-        
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card" onclick="openModal('modal1')">
-                <div class="project-image">
-                    🤖
-                    <!-- Replace with: <img src="project1.gif" alt="Project 1"> -->
-                </div>
-                <div class="project-info">
-                    <h3>Autonomous SLAM Robot</h3>
-                    <p>Mobile robot with LiDAR-based navigation and real-time mapping capabilities.</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">ROS2</span>
-                        <span class="tech-tag">LiDAR</span>
-                        <span class="tech-tag">C++</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                    <span class="view-details">View Details →</span>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-card" onclick="openModal('modal2')">
-                <div class="project-image">
-                    👁️
-                    <!-- Replace with: <img src="project2.gif" alt="Project 2"> -->
-                </div>
-                <div class="project-info">
-                    <h3>Real-Time Object Tracker</h3>
-                    <p>Computer vision system for multi-object tracking using deep learning.</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">OpenCV</span>
-                        <span class="tech-tag">YOLOv8</span>
-                        <span class="tech-tag">PyTorch</span>
-                    </div>
-                    <span class="view-details">View Details →</span>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="project-card" onclick="openModal('modal3')">
-                <div class="project-image">
-                    🦾
-                    <!-- Replace with: <img src="project3.gif" alt="Project 3"> -->
-                </div>
-                <div class="project-info">
-                    <h3>Gesture-Controlled Robotic Arm</h3>
-                    <p>6-DOF arm with computer vision-based gesture control interface.</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">MediaPipe</span>
-                        <span class="tech-tag">Arduino</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">IK</span>
-                    </div>
-                    <span class="view-details">View Details →</span>
-                </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="project-card" onclick="openModal('modal4')">
-                <div class="project-image">
-                    🚗
-                    <!-- Replace with: <img src="project4.gif" alt="Project 4"> -->
-                </div>
-                <div class="project-info">
-                    <h3>Self-Driving Mini Car</h3>
-                    <p>Autonomous vehicle with lane detection and obstacle avoidance.</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Raspberry Pi</span>
-                        <span class="tech-tag">OpenCV</span>
-                        <span class="tech-tag">PID</span>
-                        <span class="tech-tag">TensorFlow</span>
-                    </div>
-                    <span class="view-details">View Details →</span>
-                </div>
-            </div>
-
-            <!-- Project 5 -->
-            <div class="project-card" onclick="openModal('modal5')">
-                <div class="project-image">
-                    🧠
-                    <!-- Replace with: <img src="project5.gif" alt="Project 5"> -->
-                </div>
-                <div class="project-info">
-                    <h3>TinyML Gesture Recognition</h3>
-                    <p>Edge AI system for real-time gesture classification on microcontrollers.</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">TensorFlow Lite</span>
-                        <span class="tech-tag">Arduino</span>
-                        <span class="tech-tag">IMU</span>
-                        <span class="tech-tag">C++</span>
-                    </div>
-                    <span class="view-details">View Details →</span>
-                </div>
-            </div>
-
-            <!-- Project 6 -->
-            <div class="project-card" onclick="openModal('modal6')">
-                <div class="project-image">
-                    🌐
-                    <!-- Replace with: <img src="project6.gif" alt="Project 6"> -->
-                </div>
-                <div class="project-info">
-                    <h3>IoT Smart Greenhouse</h3>
-                    <p>Automated monitoring and control system with cloud integration.</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">ESP32</span>
-                        <span class="tech-tag">MQTT</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Firebase</span>
-                    </div>
-                    <span class="view-details">View Details →</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MODAL TEMPLATES (One per project) -->
-    <!-- Modal 1 -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Autonomous SLAM Robot</h2>
-                <span class="close" onclick="closeModal('modal1')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image">
-                    🤖
-                    <!-- Replace with: <img src="project1-detail.gif" alt="SLAM Robot Demo"> -->
-                </div>
-                
-                <div class="modal-section">
-                    <h3>📝 Project Overview</h3>
-                    <p>Developed a fully autonomous mobile robot capable of simultaneous localization and mapping (SLAM) in unknown indoor environments. The system uses a 2D LiDAR sensor combined with wheel odometry and IMU data for accurate pose estimation and environment mapping.</p>
-                </div>
-
-                <div class="modal-section">
-                    <h3>🎯 Key Features</h3>
-                    <ul>
-                        <li>Real-time 2D mapping using Gmapping algorithm</li>
-                        <li>AMCL-based localization with particle filter</li>
-                        <li>Dynamic obstacle avoidance using DWA planner</li>
-                        <li>Path planning with A* algorithm</li>
-                        <li>ROS2-based architecture for modularity</li>
-                        <li>Web-based monitoring dashboard</li>
-                    </ul>
-                </div>
-
-                <div class="modal-section">
-                    <h3>⚙️ Technical Implementation</h3>
-                    <p><strong>Hardware:</strong> Raspberry Pi 4, RPLIDAR A1, MPU6050 IMU, motor encoders, differential drive system</p>
-                    <p><strong>Software Stack:</strong> ROS2 Humble, Nav2, Gazebo for simulation, RViz for visualization</p>
-                    <p><strong>Algorithms:</strong> Extended Kalman Filter for sensor fusion, Dijkstra for global planning, DWA for local planning</p>
-                </div>
-
-                <div class="modal-section">
-                    <h3>📊 Results & Impact</h3>
-                    <p>Successfully navigated complex indoor environments with 95% accuracy. Reduced mapping time by 30% compared to baseline. Presented at university robotics symposium and won "Best Autonomous System" award.</p>
-                </div>
-
-                <div class="modal-links">
-                    <a href="https://github.com/yourusername/slam-robot" target="_blank" class="btn btn-primary">GitHub Repository</a>
-                    <a href="https://youtu.be/demo" target="_blank" class="btn btn-secondary">Watch Demo</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal 2 -->
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Real-Time Object Tracker</h2>
-                <span class="close" onclick="closeModal('modal2')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image">
-                    👁️
-                </div>
-                
-                <div class="modal-section">
-                    <h3>📝 Project Overview</h3>
-                    <p>Built a robust multi-object tracking system using state-of-the-art deep learning models. The system processes video feeds in real-time, detecting and tracking multiple objects across frames with high accuracy even in challenging conditions.</p>
-                </div>
-
-                <div class="modal-section">
-                    <h3>🎯 Key Features</h3>
-                    <ul>
-                        <li>YOLOv8 for real-time object detection</li>
-                        <li>DeepSORT for multi-object tracking</li>
-                        <li>Kalman filter for motion prediction</li>
-                        <li>Support for 80+ object classes</li>
-                        <li>30 FPS processing on standard GPU</li>
-                        <li>Re-identification in case of occlusion</li>
-                    </ul>
-                </div>
-
-                <div class="modal-section">
-                    <h3>⚙️ Technical Implementation</h3>
-                    <p><strong>Deep Learning:</strong> YOLOv8n model, trained on COCO dataset with custom fine-tuning</p>
-                    <p><strong>Tracking Algorithm:</strong> DeepSORT with cosine metric learning for appearance features</p>
-                    <p><strong>Optimization:</strong> TensorRT for inference acceleration, achieved 3x speedup</p>
-                </div>
-
-                <div class="modal-section">
-                    <h3>📊 Results & Impact</h3>
-                    <p>Achieved 89% MOTA (Multiple Object Tracking Accuracy) on MOT17 benchmark. Successfully deployed for crowd monitoring in university campus. Code open-sourced with 50+ GitHub stars.</p>
-                </div>
-
-                <div class="modal-links">
-                    <a href="https://github.com/yourusername/object-tracker" target="_blank" class="btn btn-primary">GitHub Repository</a>
-                    <a href="#" target="_blank" class="btn btn-secondary">Research Paper</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal 3 -->
-    <div id="modal3" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Gesture-Controlled Robotic Arm</h2>
-                <span class="close" onclick="closeModal('modal3')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image">
-                    🦾
-                </div>
-                
-                <div class="modal-section">
-                    <h3>📝 Project Overview</h3>
-                    <p>Created an intuitive human-robot interface using hand gesture recognition. The 6-DOF robotic arm mimics human hand movements in real-time using computer vision and inverse kinematics, enabling natural and intuitive control.</p>
-                </div>
-
-                <div class="modal-section">
-                    <h3>🎯 Key Features</h3>
-                    <ul>
-                        <li>MediaPipe-based hand landmark detection</li>
-                        <li>Real-time inverse kinematics solver</li>
-                        <li>6 degrees of freedom control</li>
-                        <li>Workspace mapping and scaling</li>
-                        <li>Gripper control via pinch gesture</li>
-                        <li>Sub-centimeter positioning accuracy</li>
-                    </ul>
-                </div>
-
-                <div class="modal-section">
-                    <h3>⚙️ Technical Implementation</h3>
-                    <p><strong>Hardware:</strong> 3D-printed structure, 6 servo motors, Arduino Mega, Raspberry Pi 4, webcam</p>
-                    <p><strong>Software:</strong> Python with MediaPipe, OpenCV, custom IK solver using geometric approach</p>
-                    <p><strong>Control:</strong> PID control for smooth servo movement, velocity profiling for natural motion</p>
-                </div>
-
-                <div class="modal-section">
-                    <h3>📊 Results & Impact</h3>
-                    <p>Successfully demonstrated pick-and-place tasks with 95% success rate. Won 1st place at National Robotics Competition 2024. Featured in university newsletter and local tech magazine.</p>
-                </div>
-
-                <div class="modal-links">
-                    <a href="https://github.com/yourusername/gesture-arm" target="_blank" class="btn btn-primary">GitHub Repository</a>
-                    <a href="#" target="_blank" class="btn btn-secondary">Video Demo</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modals 4-6 (Similar structure) -->
-    <div id="modal4" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Self-Driving Mini Car</h2>
-                <span class="close" onclick="closeModal('modal4')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image">🚗</div>
-                <div class="modal-section">
-                    <h3>📝 Project Overview</h3>
-                    <p>Complete autonomous vehicle prototype with lane detection, traffic sign recognition, and obstacle avoidance capabilities.</p>
-                </div>
-                <div class="modal-links">
-                    <a href="#" class="btn btn-primary">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal5" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>TinyML Gesture Recognition</h2>
-                <span class="close" onclick="closeModal('modal5')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image">🧠</div>
-                <div class="modal-section">
-                    <h3>📝 Project Overview</h3>
-                    <p>Deployed neural network on Arduino for real-time gesture recognition using only 20KB of memory.</p>
-                </div>
-                <div class="modal-links">
-                    <a href="#" class="btn btn-primary">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal6" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>IoT Smart Greenhouse</h2>
-                <span class="close" onclick="closeModal('modal6')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image">🌐</div>
-                <div class="modal-section">
-                    <h3>📝 Project Overview</h3>
-                    <p>Automated plant monitoring system with cloud-based analytics and remote control capabilities.</p>
-                </div>
-                <div class="modal-links">
-                    <a href="#" class="btn btn-primary">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ACHIEVEMENTS SECTION -->
-    <section id="achievements">
-        <h2 class="section-title">Achievements & Awards</h2>
-        <p class="section-subtitle">Recognition for academic and technical excellence</p>
-        
-        <div class="achievements-grid">
-            <div class="achievement-card">
-                <div class="icon">🏆</div>
-                <h3>Best Autonomous System Award</h3>
-                <p>Won 1st place at National Robotics Competition 2024 for SLAM robot project</p>
-            </div>
-
-            <div class="achievement-card">
-                <div class="icon">📄</div>
-                <h3>Published Research Paper</h3>
-                <p>IEEE ICRA 2024 - "Lightweight SLAM for Resource-Constrained Mobile Robots"</p>
-            </div>
-
-            <div class="achievement-card">
-                <div class="icon">💡</div>
-                <h3>Innovation Grant</h3>
-                <p>Received $5,000 research grant from university innovation fund for gesture control project</p>
-            </div>
-
-            <div class="achievement-card">
-                <div class="icon">🎓</div>
-                <h3>Dean's List</h3>
-                <p>Consistently on Dean's List for academic excellence (2022-2025)</p>
-            </div>
-
-            <div class="achievement-card">
-                <div class="icon">👥</div>
-                <h3>Hackathon Winner</h3>
-                <p>1st place at RoboHacks 2023 - Built autonomous delivery robot in 24 hours</p>
-            </div>
-
-            <div class="achievement-card">
-                <div class="icon">🌟</div>
-                <h3>Open Source Contributor</h3>
-                <p>Active contributor to ROS2 community with 5+ merged PRs</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PHOTO GALLERY SECTION -->
-    <section id="gallery" style="background: var(--bg-card); padding: var(--section-padding);">
-        <h2 class="section-title">Gallery</h2>
-        <p class="section-subtitle">Moments from workshops, conferences, and competitions</p>
-        
-        <div class="gallery-grid">
-            <!-- Workshop Photos -->
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    🎓
-                    <!-- Replace with: <img src="images/workshop1.jpg" alt="Conducting Robotics Workshop"> -->
-                </div>
-                <div class="gallery-caption">
-                    <h4>Robotics Workshop</h4>
-                    <p>Teaching autonomous navigation to 30+ students</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    🏆
-                    <!-- Replace with: <img src="images/award1.jpg" alt="Receiving Best Project Award"> -->
-                </div>
-                <div class="gallery-caption">
-                    <h4>Best Autonomous System Award</h4>
-                    <p>National Robotics Competition 2024</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    📊
-                    <!-- Replace with: <img src="images/conference1.jpg" alt="Presenting at IEEE Conference"> -->
-                </div>
-                <div class="gallery-caption">
-                    <h4>IEEE ICRA 2024 Presentation</h4>
-                    <p>Presenting research on lightweight SLAM</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    👥
-                    <!-- Replace with: <img src="images/workshop2.jpg" alt="Workshop Group Photo"> -->
-                </div>
-                <div class="gallery-caption">
-                    <h4>Workshop Participants</h4>
-                    <p>Hands-on robotics training session</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    🤖
-                    <!-- Replace with: <img src="images/competition1.jpg" alt="Robotics Competition"> -->
-                </div>
-                <div class="gallery-caption">
-                    <h4>University Robotics Competition</h4>
-                    <p>Organized event with 50+ participants</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    🎤
-                    <!-- Replace with: <img src="images/presentation1.jpg" alt="Technical Presentation"> -->
-                </div>
-                <div class="gallery-caption">
-                    <h4>Technical Talk</h4>
-                    <p>Presenting SLAM implementation at symposium</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Lightbox Modal for Full-Size Images -->
-        <div id="lightbox" class="lightbox">
-            <span class="lightbox-close">&times;</span>
-            <img class="lightbox-content" id="lightbox-img">
-            <div id="lightbox-caption"></div>
-        </div>
-    </section>
-
-    <!-- BEYOND THE LAB SECTION -->
-    <section id="interests">
-        <h2 class="section-title">Beyond the Lab</h2>
-        <p class="section-subtitle">Leadership, problem-solving, and staying balanced</p>
-        
-        <div class="about-content">
-            <div class="about-text">
-                <p>
-                    Beyond my technical work, I'm passionate about <strong>sharing knowledge and building community</strong>. I've conducted multiple robotics workshops for students and organized our university's annual robotics competition, mentoring over 50 participants in autonomous system design.
-                </p>
-                <p>
-                    I'm an avid <strong>speedcuber</strong>—solving the 3x3 Rubik's cube in under 15 seconds. This hobby has sharpened my spatial reasoning and algorithmic thinking, skills that directly translate to robotics path planning and optimization problems. The pattern recognition and muscle memory involved mirror the challenges in real-time robotic control.
-                </p>
-                <p>
-                    To maintain balance, I actively play <strong>handball and badminton</strong>, and recently started <strong>calisthenics training</strong>. These activities keep me physically active and mentally sharp—essential for the demanding nature of graduate research. Team sports have also taught me valuable lessons in coordination, quick decision-making, and working under pressure.
-                </p>
-            </div>
-            
-            <div class="about-details">
-                <h3>🎯 Leadership & Community</h3>
-                <ul>
-                    <li>Robotics workshop instructor (50+ students)</li>
-                    <li>University robotics competition organizer</li>
-                    <li>FIRST Robotics mentor</li>
-                    <li>Open-source contributor</li>
-                </ul>
-                
-                <h3 style="margin-top: 2rem;">🧩 Problem-Solving & Interests</h3>
-                <ul>
-                    <li>Speedcubing (3x3 in &lt;15 sec)</li>
-                    <li>Algorithmic thinking & optimization</li>
-                    <li>Handball player</li>
-                    <li>Badminton enthusiast</li>
-                    <li>Calisthenics training</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS SECTION -->
-    <section id="skills">
-        <h2 class="section-title">Technical Skills</h2>
-        <p class="section-subtitle">Comprehensive toolkit for robotics development</p>
-        
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Programming Languages</h3>
-                <div class="skills-list">
-                    <span class="skill-item">Python</span>
-                    <span class="skill-item">C/C++</span>
-                    <span class="skill-item">Java</span>
-                    <span class="skill-item">JavaScript</span>
-                    <span class="skill-item">MATLAB</span>
-                    <span class="skill-item">Assembly</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Robotics & Embedded</h3>
-                <div class="skills-list">
-                    <span class="skill-item">ROS/ROS2</span>
-                    <span class="skill-item">Arduino</span>
-                    <span class="skill-item">Raspberry Pi</span>
-                    <span class="skill-item">ESP32</span>
-                    <span class="skill-item">STM32</span>
-                    <span class="skill-item">PID Control</span>
-                    <span class="skill-item">FreeRTOS</span>
-                    <span class="skill-item">Gazebo</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>AI & Computer Vision</h3>
-                <div class="skills-list">
-                    <span class="skill-item">OpenCV</span>
-                    <span class="skill-item">TensorFlow</span>
-                    <span class="skill-item">PyTorch</span>
-                    <span class="skill-item">YOLO</span>
-                    <span class="skill-item">MediaPipe</span>
-                    <span class="skill-item">Scikit-learn</span>
-                    <span class="skill-item">TensorRT</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Tools & Platforms</h3>
-                <div class="skills-list">
-                    <span class="skill-item">Git/GitHub</span>
-                    <span class="skill-item">Linux</span>
-                    <span class="skill-item">Docker</span>
-                    <span class="skill-item">RViz</span>
-                    <span class="skill-item">SolidWorks</span>
-                    <span class="skill-item">KiCAD</span>
-                    <span class="skill-item">MQTT</span>
-                    <span class="skill-item">CMake</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">Open to research opportunities and collaborations</p>
-        
-        <div class="contact-content">
-            <p class="contact-text">
-                I'm actively seeking <strong>Master's opportunities in Robotics, Computer Science, or related fields</strong> for Fall 2026. I'm particularly interested in research programs focusing on autonomous systems, SLAM, and human-robot interaction. Feel free to reach out for collaborations, questions, or just to connect!
-            </p>
-            
-            <div class="contact-links">
-                <a href="mailto:your.email@university.edu" class="contact-link">
-                    <strong>📧 Email:</strong> your.email@university.edu
-                </a>
-                <a href="https://github.com/yourusername" target="_blank" class="contact-link">
-                    <strong>💻 GitHub:</strong> github.com/yourusername
-                </a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">
-                    <strong>💼 LinkedIn:</strong> linkedin.com/in/yourprofile
-                </a>
-                <a href="https://scholar.google.com/yourprofile" target="_blank" class="contact-link">
-                    <strong>🎓 Google Scholar:</strong> View Publications
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>Designed & Built by Your Name | © 2025</p>
-        <p><a href="https://github.com/yourusername/portfolio" target="_blank">View Source Code</a> | Last Updated: January 2025</p>
-    </footer>
-
-    <!-- JAVASCRIPT -->
-    <script>
-        // Mobile menu toggle
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Smooth scroll with offset for fixed navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 70;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Modal Functions
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // Close modal with ESC key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                document.querySelectorAll('.modal').forEach(modal => {
-                    modal.style.display = 'none';
-                });
-                document.body.style.overflow = 'auto';
-                
-                // Close lightbox too
-                document.getElementById('lightbox').style.display = 'none';
-            }
-        });
-
-        // Lightbox functionality
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxCaption = document.getElementById('lightbox-caption');
-        const lightboxClose = document.querySelector('.lightbox-close');
-
-        galleryItems.forEach(item => {
-            item.addEventListener('click', function() {
-                const img = this.querySelector('.gallery-image img');
-                const caption = this.querySelector('.gallery-caption h4').textContent;
-                
-                if (img) {
-                    lightbox.style.display = 'block';
-                    lightboxImg.src = img.src;
-                    lightboxCaption.textContent = caption;
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-        });
-
-        if (lightboxClose) {
-            lightboxClose.addEventListener('click', function() {
-                lightbox.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-        }
-
-        lightbox.addEventListener('click', function(e) {
-            if (e.target === lightbox) {
-                lightbox.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Timeline photo click to lightbox
-        document.querySelectorAll('.timeline-photo').forEach(photo => {
-            photo.addEventListener('click', function() {
-                const img = this.querySelector('img');
-                const caption = this.querySelector('.timeline-photo-caption');
-                
-                if (img && lightbox) {
-                    lightbox.style.display = 'block';
-                    lightboxImg.src = img.src;
-                    lightboxCaption.textContent = caption ? caption.textContent : '';
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                        <h3>Research Intern - Autonomous Systems Lab</h
