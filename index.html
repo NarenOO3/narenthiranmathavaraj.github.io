@@ -134,7 +134,55 @@
         .certificate-date { color: var(--text-secondary); font-size: 0.85rem; }
         .verify-link { color: var(--primary); font-size: 0.85rem; text-decoration: none; transition: all 0.3s; }
         .verify-link:hover { text-decoration: underline; }
+                /* Sections */
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 2.5rem; margin-bottom: 1rem; text-align: center; position: relative; display: inline-block; width: 100%; }
+        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--primary); border-radius: 2px; }
+        .section-subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.1rem; }
         
+        /* CV Section Styles */
+        #cv { padding-top: 100px; }
+        .cv-wrapper { max-width: 1000px; margin: 0 auto; }
+        .cv-header-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+        .cv-zoom-controls { display: flex; align-items: center; gap: 0.8rem; background: var(--bg-card); padding: 0.8rem 1.5rem; border-radius: 8px; border: 1px solid rgba(0, 217, 255, 0.1); }
+        .cv-zoom-controls button { background: rgba(0, 217, 255, 0.1); color: var(--primary); border: 1px solid rgba(0, 217, 255, 0.3); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s; }
+        .cv-zoom-controls button:hover { background: rgba(0, 217, 255, 0.2); }
+        .cv-zoom-level { color: var(--text-secondary); font-family: 'JetBrains Mono', monospace; min-width: 60px; text-align: center; }
+        .cv-download-btn { background: var(--primary); color: var(--bg-dark); padding: 0.8rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.8rem; }
+        .cv-download-btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 217, 255, 0.3); }
+        .cv-container-box { background: var(--bg-card); border-radius: 12px; border: 1px solid rgba(0, 217, 255, 0.1); overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); }
+        .cv-scroll-area { max-height: 700px; overflow-y: auto; overflow-x: hidden; background: #ffffff; }
+        .cv-scroll-area::-webkit-scrollbar { width: 12px; }
+        .cv-scroll-area::-webkit-scrollbar-track { background: #f1f1f1; }
+        .cv-scroll-area::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 6px; }
+        .cv-content { padding: 3rem; background: #ffffff; color: #1a1a2e; transition: transform 0.3s; transform-origin: top center; }
+        
+        /* CV Content Styling */
+        .cv-header-section { text-align: center; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 3px solid var(--primary); }
+        .cv-header-section h1 { font-size: 2.8rem; color: #1a1a2e; margin-bottom: 0.5rem; font-weight: 700; }
+        .cv-header-section .cv-tagline { font-size: 1.2rem; color: #666; margin-bottom: 1rem; font-style: italic; }
+        .cv-contact-info { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; font-size: 0.9rem; color: #555; }
+        .cv-contact-info a { color: var(--primary-dark); text-decoration: none; }
+        .cv-contact-info a:hover { text-decoration: underline; }
+        .cv-section { margin-bottom: 2.5rem; }
+        .cv-section-title { font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 1.2rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e0e0e0; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; }
+        .cv-section-title::before { content: '▶'; color: var(--primary); font-size: 1rem; }
+        .cv-item { margin-bottom: 1.8rem; }
+        .cv-item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem; }
+        .cv-item-title { font-size: 1.2rem; font-weight: 600; color: #1a1a2e; }
+        .cv-item-date { font-size: 0.95rem; color: #666; font-family: 'JetBrains Mono', monospace; }
+        .cv-item-subtitle { font-size: 1rem; color: #555; margin-bottom: 0.5rem; font-weight: 500; }
+        .cv-item-description { color: #444; line-height: 1.7; margin-bottom: 0.5rem; }
+        .cv-item-list { margin-top: 0.5rem; padding-left: 1.5rem; color: #444; }
+        .cv-item-list li { margin-bottom: 0.3rem; line-height: 1.6; }
+        .cv-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+        .cv-tag { background: #e8f5ff; color: var(--primary-dark); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; }
+        
+        @media (max-width: 768px) {
+            .cv-content { padding: 1.5rem; min-width: unset; }
+            .cv-header-controls { flex-direction: column; align-items: stretch; }
+            .cv-zoom-controls, .cv-download-btn { justify-content: center; width: 100%; }
+        }
         /* GALLERY */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
         .gallery-item { background: var(--bg-dark); border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 217, 255, 0.1); transition: all 0.3s; cursor: pointer; }
@@ -222,6 +270,7 @@
                 <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#cv">CV</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#interests">Interests</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -592,6 +641,247 @@
         </div>
     </section>
 
+    <!-- CV SECTION -->
+    <section id="cv">
+        <h2 class="section-title">Curriculum Vitae</h2>
+        <p class="section-subtitle">Explore my professional journey and download my complete CV</p>
+        
+        <div class="cv-wrapper">
+            <div class="cv-header-controls">
+                <div class="cv-zoom-controls">
+                    <button onclick="zoomOut()">−</button>
+                    <span class="cv-zoom-level" id="zoom-level">100%</span>
+                    <button onclick="zoomIn()">+</button>
+                    <button onclick="resetZoom()" style="margin-left: 0.5rem;">Reset</button>
+                </div>
+                <a href="your-cv.pdf" download class="cv-download-btn">
+                    📥 Download PDF
+                </a>
+            </div>
+            
+            <div class="cv-container-box">
+                <div class="cv-scroll-area" id="cv-scroll">
+                    <div class="cv-content" id="cv-content">
+                        <!-- CV Header -->
+                        <div class="cv-header-section">
+                            <h1>Your Full Name</h1>
+                            <p class="cv-tagline">Robotics & Embedded Systems Engineer</p>
+                            <div class="cv-contact-info">
+                                <span>📧 <a href="mailto:your.email@university.edu">your.email@university.edu</a></span>
+                                <span>📱 +1 (123) 456-7890</span>
+                                <span>🌐 <a href="https://yourwebsite.com" target="_blank">yourwebsite.com</a></span>
+                                <span>💼 <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></span>
+                            </div>
+                        </div>
+
+                        <!-- Education Section -->
+                        <div class="cv-section">
+                            <h2 class="cv-section-title">Education</h2>
+                            
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+                                    <span class="cv-item-title">Master of Science in Computer Science</span>
+                                    <span class="cv-item-date">2025 - 2027</span>
+                                </div>
+                                <div class="cv-item-subtitle">University Name, City, Country</div>
+                                <div class="cv-item-description">
+                                    <strong>Focus:</strong> Robotics, Computer Vision, Machine Learning<br>
+                                    <strong>Relevant Courses:</strong> Advanced Robotics, Deep Learning, SLAM, Computer Vision
+                                </div>
+                            </div>
+
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+                                    <span class="cv-item-title">Bachelor of Technology in Robotics Engineering</span>
+                                    <span class="cv-item-date">2021 - 2025</span>
+                                </div>
+                                <div class="cv-item-subtitle">University Name, City, Country</div>
+                                <div class="cv-item-description">
+                                    <strong>GPA:</strong> 3.8/4.0<br>
+                                    <strong>Relevant Courses:</strong> Control Systems, Embedded Systems, Computer Vision, Machine Learning
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Experience Section -->
+                        <div class="cv-section">
+                            <h2 class="cv-section-title">Research Experience</h2>
+                            
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+                                    <span class="cv-item-title">Research Intern</span>
+                                    <span class="cv-item-date">Jun 2024 - Present</span>
+                                </div>
+                                <div class="cv-item-subtitle">Autonomous Systems Lab, University Name</div>
+                                <div class="cv-item-description">
+                                    Working on multi-robot coordination using reinforcement learning for warehouse automation
+                                </div>
+                                <ul class="cv-item-list">
+                                    <li>Developed distributed decision-making framework in ROS2</li>
+                                    <li>Achieved 40% improvement in task completion time through simulation</li>
+                                    <li>Implemented and tested algorithms in Gazebo environment</li>
+                                </ul>
+                                <div class="cv-tags">
+                                    <span class="cv-tag">ROS2</span>
+                                    <span class="cv-tag">Reinforcement Learning</span>
+                                    <span class="cv-tag">Python</span>
+                                    <span class="cv-tag">Gazebo</span>
+                                </div>
+                            </div>
+
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+                                    <span class="cv-item-title">Undergraduate Researcher</span>
+                                    <span class="cv-item-date">Jan 2024 - May 2024</span>
+                                </div>
+                                <div class="cv-item-subtitle">Computer Vision Lab, University Name</div>
+                                <div class="cv-item-description">
+                                    Developed lightweight SLAM algorithms for resource-constrained mobile robots
+                                </div>
+                                <ul class="cv-item-list">
+                                    <li>Reduced computational overhead by 35% while maintaining accuracy</li>
+                                    <li>Published paper at IEEE ICRA 2024</li>
+                                    <li>Implemented algorithms in C++ and Python</li>
+                                </ul>
+                                <div class="cv-tags">
+                                    <span class="cv-tag">SLAM</span>
+                                    <span class="cv-tag">C++</span>
+                                    <span class="cv-tag">Computer Vision</span>
+                                    <span class="cv-tag">ROS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projects Section -->
+                        <div class="cv-section">
+                            <h2 class="cv-section-title">Key Projects</h2>
+                            
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+                                    <span class="cv-item-title">Autonomous SLAM Robot</span>
+                                    <span class="cv-item-date">2024</span>
+                                </div>
+                                <div class="cv-item-description">
+                                    Mobile robot with LiDAR-based navigation and real-time mapping capabilities
+                                </div>
+                                <ul class="cv-item-list">
+                                    <li>Implemented Gmapping and AMCL for localization</li>
+                                    <li>Dynamic obstacle avoidance using DWA planner</li>
+                                    <li>Won 1st place at National Robotics Competition</li>
+                                </ul>
+                            </div>
+
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+                                    <span class="cv-item-title">Real-Time Object Tracker</span>
+                                    <span class="cv-item-date">2023</span>
+                                </div>
+                                <div class="cv-item-description">
+                                    Computer vision system for multi-object tracking using deep learning
+                                </div>
+                                <ul class="cv-item-list">
+                                    <li>Implemented YOLOv8 for object detection</li>
+                                    <li>Achieved 30 FPS on embedded hardware</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Publications Section -->
+                        <div class="cv-section">
+                            <h2 class="cv-section-title">Publications</h2>
+                            
+                            <div class="cv-item">
+                                <div class="cv-item-description">
+                                    <strong>Your Name</strong>, Co-Author. (2024). "Lightweight SLAM for Resource-Constrained Mobile Robots." 
+                                    <em>IEEE International Conference on Robotics and Automation (ICRA)</em>.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Skills Section -->
+                        <div class="cv-section">
+                            <h2 class="cv-section-title">Technical Skills</h2>
+                            <div class="cv-item-description">
+                                <strong>Programming:</strong> Python, C/C++, Java, MATLAB<br>
+                                <strong>Robotics:</strong> ROS/ROS2, Gazebo, MoveIt, Navigation Stack<br>
+                                <strong>Computer Vision:</strong> OpenCV, TensorFlow, PyTorch, YOLO<br>
+                                <strong>Embedded Systems:</strong> Arduino, Raspberry Pi, ESP32, STM32<br>
+                                <strong>Tools:</strong> Git, Docker, Linux, LaTeX, SolidWorks
+                            </div>
+                        </div>
+
+                        <!-- Awards Section -->
+                        <div class="cv-section">
+                            <h2 class="cv-section-title">Awards & Honors</h2>
+                            
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+                                    <span class="cv-item-title">Best Autonomous System Award</span>
+                                    <span class="cv-item-date">2024</span>
+                                </div>
+                                <div class="cv-item-subtitle">National Robotics Competition</div>
+                            </div>
+
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+                                    <span class="cv-item-title">Innovation Grant ($5,000)</span>
+                                    <span class="cv-item-date">2024</span>
+                                </div>
+                                <div class="cv-item-subtitle">University Innovation Fund</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentZoom = 1;
+        const cvContent = document.getElementById('cv-content');
+        const zoomLevel = document.getElementById('zoom-level');
+
+        function updateZoom() {
+            cvContent.style.transform = `scale(${currentZoom})`;
+            zoomLevel.textContent = `${Math.round(currentZoom * 100)}%`;
+        }
+
+        function zoomIn() {
+            if (currentZoom < 1.5) {
+                currentZoom += 0.1;
+                updateZoom();
+            }
+        }
+
+        function zoomOut() {
+            if (currentZoom > 0.6) {
+                currentZoom -= 0.1;
+                updateZoom();
+            }
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            updateZoom();
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                if (e.key === '+' || e.key === '=') {
+                    e.preventDefault();
+                    zoomIn();
+                } else if (e.key === '-') {
+                    e.preventDefault();
+                    zoomOut();
+                } else if (e.key === '0') {
+                    e.preventDefault();
+                    resetZoom();
+                }
+            }
+        });
+    </script>
     <!-- GALLERY -->
     <section id="gallery" style="background: var(--bg-card);">
         <h2 class="section-title">Gallery</h2>
