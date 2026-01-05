@@ -159,7 +159,7 @@
         .cv-scroll-area::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 6px; }
         .cv-content { padding: 3rem; background: #ffffff; color: #1a1a2e; transition: transform 0.3s; transform-origin: top center; }
         
-        /* CV Content Styling */
+         /* CV Content Styling */
         .cv-header-section { text-align: center; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 3px solid var(--primary); }
         .cv-header-section h1 { font-size: 2.8rem; color: #1a1a2e; margin-bottom: 0.5rem; font-weight: 700; }
         .cv-header-section .cv-tagline { font-size: 1.2rem; color: #666; margin-bottom: 1rem; font-style: italic; }
@@ -170,13 +170,30 @@
         .cv-section-title { font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 1.2rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e0e0e0; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; }
         .cv-section-title::before { content: '▶'; color: var(--primary); font-size: 1rem; }
         .cv-item { margin-bottom: 1.8rem; }
-        .cv-item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem; }
+        /* .cv-item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem; }
         .cv-item-title { font-size: 1.2rem; font-weight: 600; color: #1a1a2e; }
         .cv-item-date { font-size: 0.95rem; color: #666; font-family: 'JetBrains Mono', monospace; }
-        .cv-item-subtitle { font-size: 1rem; color: #555; margin-bottom: 0.5rem; font-weight: 500; }
-        .cv-item-description { color: #444; line-height: 1.7; margin-bottom: 0.5rem; }
-        .cv-item-list { margin-top: 0.5rem; padding-left: 1.5rem; color: #444; }
-        .cv-item-list li { margin-bottom: 0.3rem; line-height: 1.6; }
+        .cv-item-place { font-size: 1rem; color: #666; font-family: 'JetBrains Mono', monospace; } */
+        .cv-item-header {display: flex; justify-content: space-between; align-items: flex-start; /* important */ gap: 1rem;}
+        .cv-item-meta {display: flex; flex-direction: column; /* stack date + place */  align-items: flex-end;  /* right-align text */}
+        .cv-item-date {font-size: 0.95rem; color: #666; font-family: 'JetBrains Mono', monospace;}
+        .cv-item-place {font-size: 0.9rem; color: #777; font-family: 'JetBrains Mono', monospace;}
+
+        .cv-item-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;}
+
+        /* LEFT COLUMN */
+        .cv-item-main { display: flex; flex-direction: column;}
+        .cv-item-title { font-size: 1rem; font-weight: 600; color: #1a1a2e;}
+        .cv-item-subtitle { font-size: 1rem; color: #555; font-weight: 500;margin-bottom: 0.15rem; }
+
+        /* RIGHT COLUMN */
+        .cv-item-meta { display: flex; flex-direction: column; align-items: flex-end;}
+        .cv-item-date,
+        .cv-item-place { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #666;}
+        .cv-item-subtitle { font-size: 0.9rem; color: #555; margin-bottom: 0.5rem; font-weight: 500; }
+        .cv-item-description { color: #444; line-height: 1.7; margin-bottom: 0.1rem; }
+        .cv-item-list { margin-top: 0.15rem; padding-left: 1.5rem; color: #444;}
+        .cv-item-list li { margin-bottom: 0.3rem; line-height: 1.6;}
         .cv-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
         .cv-tag { background: #e8f5ff; color: var(--primary-dark); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; }
         
@@ -793,13 +810,14 @@ novel double-ring load transfer mechanism"</p>
                     <div class="cv-content" id="cv-content">
                         <!-- CV Header -->
                         <div class="cv-header-section">
-                            <h1>Your Full Name</h1>
+                            <h1>NARENTHIRAN MATHAVARAJ</h1>
                             <p class="cv-tagline">Robotics Engineer</p>
                             <div class="cv-contact-info">
-                                <span>📧 <a href="mailto:your.email@university.edu">your.email@university.edu</a></span>
-                                <span>📱 +1 (123) 456-7890</span>
-                                <span>🌐 <a href="https://yourwebsite.com" target="_blank">yourwebsite.com</a></span>
-                                <span>💼 <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></span>
+                                <span>📱 +91 9488032468</span>
+                                <span>📧 <a href="mailto:your.email@university.edu">naren1729003@gmail.com</a></span>
+                                <span>💼 <a href="https://www.linkedin.com/in/narenthiran-m/" target="_blank">LinkedIn</a></span>
+                                <span>🌐 <a href="https://drive.google.com/file/d/1Irq5z8VhUP_2o_cptQx1nMD7FNRzCWfr/view" target="_blank">Project Portpolio</a></span>
+                               
                             </div>
                         </div>
 
@@ -807,7 +825,7 @@ novel double-ring load transfer mechanism"</p>
                         <div class="cv-section">
                             <h2 class="cv-section-title">Education</h2>
                             
-                            <div class="cv-item">
+                            <!-- <div class="cv-item">
                                 <div class="cv-item-header">
                                     <span class="cv-item-title">Master of Science in Computer Science</span>
                                     <span class="cv-item-date">2025 - 2027</span>
@@ -817,113 +835,70 @@ novel double-ring load transfer mechanism"</p>
                                     <strong>Focus:</strong> Robotics, Computer Vision, Machine Learning<br>
                                     <strong>Relevant Courses:</strong> Advanced Robotics, Deep Learning, SLAM, Computer Vision
                                 </div>
+                            </div> -->
+                            <div class="cv-item">
+                            <div class="cv-item-header">
+
+                                <!-- LEFT STACK -->
+                                <div class="cv-item-main">
+                                <span class="cv-item-title">
+                                    Bachelor of Technology in Electronics and Communication Engineering
+                                </span>
+                                <span class="cv-item-subtitle">
+                                    National Institute of Technology, Tiruchirappalli
+
+                                </span>
+                                </div>
+
+                                <!-- RIGHT STACK -->
+                                <div class="cv-item-meta">
+                                <span class="cv-item-date">Jul 2021 – May 2025</span>
+                                <span class="cv-item-place">Tiruchirappalli, Tamil Nadu</span>
+                                </div>
+
+                            </div>
+
+                            <div class="cv-item-description">
+                                <strong>CGPA:</strong> 8.53/10
+                            </div>
                             </div>
 
                             <div class="cv-item">
-                                <div class="cv-item-header">
-                                    <span class="cv-item-title">Bachelor of Technology in Robotics Engineering</span>
-                                    <span class="cv-item-date">2021 - 2025</span>
-                                </div>
-                                <div class="cv-item-subtitle">University Name, City, Country</div>
-                                <div class="cv-item-description">
-                                    <strong>GPA:</strong> 3.8/4.0<br>
-                                    <strong>Relevant Courses:</strong> Control Systems, Embedded Systems, Computer Vision, Machine Learning
-                                </div>
-                            </div>
-                        </div>
+                            <div class="cv-item-header">
 
-                        <!-- Experience Section -->
-                        <div class="cv-section">
-                            <h2 class="cv-section-title">Research Experience</h2>
-                            
-                            <div class="cv-item">
-                                <div class="cv-item-header">
-                                    <span class="cv-item-title">Research Intern</span>
-                                    <span class="cv-item-date">Jun 2024 - Present</span>
+                                <!-- LEFT STACK -->
+                                <div class="cv-item-main">
+                                <span class="cv-item-title">
+                                    All India Senior School Certificate Examination
+                                </span>
+                                <span class="cv-item-subtitle">
+                                    Pushpalatha Vidya Mandir
+                                </span>
                                 </div>
-                                <div class="cv-item-subtitle">Autonomous Systems Lab, University Name</div>
-                                <div class="cv-item-description">
-                                    Working on multi-robot coordination using reinforcement learning for warehouse automation
+
+                                <!-- RIGHT STACK -->
+                                <div class="cv-item-meta">
+                                <span class="cv-item-date">May 2021</span>
+                                <span class="cv-item-place">Tirunelveli, Tamil Nadu</span>
                                 </div>
-                                <ul class="cv-item-list">
-                                    <li>Developed distributed decision-making framework in ROS2</li>
-                                    <li>Achieved 40% improvement in task completion time through simulation</li>
-                                    <li>Implemented and tested algorithms in Gazebo environment</li>
-                                </ul>
-                                <div class="cv-tags">
-                                    <span class="cv-tag">ROS2</span>
-                                    <span class="cv-tag">Reinforcement Learning</span>
-                                    <span class="cv-tag">Python</span>
-                                    <span class="cv-tag">Gazebo</span>
-                                </div>
+
                             </div>
 
-                            <div class="cv-item">
-                                <div class="cv-item-header">
-                                    <span class="cv-item-title">Undergraduate Researcher</span>
-                                    <span class="cv-item-date">Jan 2024 - May 2024</span>
-                                </div>
-                                <div class="cv-item-subtitle">Computer Vision Lab, University Name</div>
-                                <div class="cv-item-description">
-                                    Developed lightweight SLAM algorithms for resource-constrained mobile robots
-                                </div>
-                                <ul class="cv-item-list">
-                                    <li>Reduced computational overhead by 35% while maintaining accuracy</li>
-                                    <li>Published paper at IEEE ICRA 2024</li>
-                                    <li>Implemented algorithms in C++ and Python</li>
-                                </ul>
-                                <div class="cv-tags">
-                                    <span class="cv-tag">SLAM</span>
-                                    <span class="cv-tag">C++</span>
-                                    <span class="cv-tag">Computer Vision</span>
-                                    <span class="cv-tag">ROS</span>
-                                </div>
+                            <div class="cv-item-description">
+                                <strong>Percentage:</strong> 95.4/100
                             </div>
-                        </div>
-
-                        <!-- Projects Section -->
-                        <div class="cv-section">
-                            <h2 class="cv-section-title">Key Projects</h2>
-                            
-                            <div class="cv-item">
-                                <div class="cv-item-header">
-                                    <span class="cv-item-title">Autonomous SLAM Robot</span>
-                                    <span class="cv-item-date">2024</span>
-                                </div>
-                                <div class="cv-item-description">
-                                    Mobile robot with LiDAR-based navigation and real-time mapping capabilities
-                                </div>
-                                <ul class="cv-item-list">
-                                    <li>Implemented Gmapping and AMCL for localization</li>
-                                    <li>Dynamic obstacle avoidance using DWA planner</li>
-                                    <li>Won 1st place at National Robotics Competition</li>
-                                </ul>
                             </div>
-
-                            <div class="cv-item">
-                                <div class="cv-item-header">
-                                    <span class="cv-item-title">Real-Time Object Tracker</span>
-                                    <span class="cv-item-date">2023</span>
-                                </div>
-                                <div class="cv-item-description">
-                                    Computer vision system for multi-object tracking using deep learning
-                                </div>
-                                <ul class="cv-item-list">
-                                    <li>Implemented YOLOv8 for object detection</li>
-                                    <li>Achieved 30 FPS on embedded hardware</li>
-                                </ul>
-                            </div>
-                        </div>
 
                         <!-- Publications Section -->
                         <div class="cv-section">
-                            <h2 class="cv-section-title">Publications</h2>
+                            <h2 class="cv-section-title">Patent and Publications</h2>
                             
                             <div class="cv-item">
                                 <div class="cv-item-description">
-                                    <strong>Narenthiran Mathavaraj</strong>, Co-Author. (2024). "Lightweight SLAM for Resource-Constrained Mobile Robots." 
-                                    <em>IEEE International Conference on Robotics and Automation (ICRA)</em>.
-                                </div>
+                                    <!-- <li><strong>Narenthiran Mathavaraj</strong>, Co-Author. (2024). "Lightweight SLAM for Resource-Constrained Mobile Robots." 
+                                        <em>IEEE International Conference on Robotics and Automation (ICRA)</em>. -->
+                                    <li>Filed a <strong>Provisional Patent [Patent Application Number: 202441043076]</strong> in the <strong>Indian Patent Office</strong> with <strong>Dr. Nirav Patel</strong> for a Constraint Constant Velocity <strong>(CCV)</strong> Joint that separates <strong>translational and rotational motion</strong> of the end effector of Master Tool Manipulator <strong>(MTM)</strong> used in <strong>minimally invasive surgeries</strong>.</li>
+                                    <li>Presented a research paper titled <strong>“Spider Arm: Design and fabrication of a cost-effective six-axis robotic arm featuring a novel double-ring load transfer mechanism”</strong> at the 7th International Conference on Mechatronics, Robotics, and Automation <strong>(ICMRA)</strong>, Wuhan, China September 21st, 2024 and published on <strong>IEEE Xplore</strong>.</li>
                             </div>
                         </div>
 
@@ -931,32 +906,348 @@ novel double-ring load transfer mechanism"</p>
                         <div class="cv-section">
                             <h2 class="cv-section-title">Technical Skills</h2>
                             <div class="cv-item-description">
-                                <strong>Programming:</strong> Python, C/C++, Java, MATLAB<br>
-                                <strong>Robotics:</strong> ROS/ROS2, Gazebo, MoveIt, Navigation Stack<br>
-                                <strong>Computer Vision:</strong> OpenCV, TensorFlow, PyTorch, YOLO<br>
-                                <strong>Embedded Systems:</strong> Arduino, Raspberry Pi, ESP32, STM32<br>
-                                <strong>Tools:</strong> Git, Docker, Linux, LaTeX, SolidWorks
+                                <strong>Languages:</strong> Python, C, Rospy, MATLAB<br>
+                                <strong>Engineering Software:</strong> Fusion 360, LT Spice<br>
+                                <strong>Frameworks:</strong> ROS1, ROS2, Gazebo, OpenCV, Moveit, Rviz, pybullet, TensorFlow, Stable-Baselines3, Jupyter Notebook<br>
+                                <strong>Boards:</strong> Arduino Uno, Esp32, Esp8266, Raspberry PI 3, Teensy 4.1, eYFI board<br>
+                                <!-- <strong>Tools:</strong> Git, Docker, Linux, LaTeX, SolidWorks -->
                             </div>
                         </div>
 
-                        <!-- Awards Section -->
+                        <!-- Internship Experience -->
                         <div class="cv-section">
-                            <h2 class="cv-section-title">Awards & Honors</h2>
+                            <h2 class="cv-section-title">Internship Experience</h2>
                             
+                            <!-- Summer Research Internship Dr. Nirav Patel -->
                             <div class="cv-item">
                                 <div class="cv-item-header">
-                                    <span class="cv-item-title">Best Autonomous System Award</span>
-                                    <span class="cv-item-date">2024</span>
+
+                                <!-- LEFT STACK -->
+                                <div class="cv-item-main">
+                                <span class="cv-item-title">
+                                    Summer Research Internship
+                                </span>
+                                <span class="cv-item-subtitle">
+                                    <strong>(Under Dr. Nirav Patel) </strong>
+                                </span>
                                 </div>
-                                <div class="cv-item-subtitle">National Robotics Competition</div>
+
+                                <!-- RIGHT STACK -->
+                                <div class="cv-item-meta">
+                                <span class="cv-item-date">Jun 2024 - Aug 2024</span>
+                                <span class="cv-item-place">IIT-Madras, Tamil Nadu</span>
+                                </div>
+
                             </div>
+                            
+                            <!-- NO description line here -->
+
+                            <ul class="cv-item-list">
+                            <li>Worked as a <strong>research</strong> intern in the Engineering Design Department at <strong>IIT-Madras</strong> on a medical robot that aims to reduce the cost of <strong>minimally invasive surgeries</strong>.</li>
+                            <li>Designed and 3D printed a provisional patent filed <strong>Low-Cost Master Tool Manipulator (MTM)</strong> in <strong>Fusion 360</strong>, which allows the surgeon to control the tooltip of the slave device <strong>Patient Side Manipulator (PSM)</strong> for precise manipulation.</li>
+                            <li>Worked on real-time communication for <strong>teleoperation</strong> between master (MTM) and slave device (PSM) via <strong>UDP protocol</strong>.</li>
+                            <li>Wrote the <strong>Forward Kinematics</strong> script in Python for the <strong>4-DOF master controller</strong> (MTM) and wrote ESP32 script to transfer the encoder's value from the master controller to <strong>Rospy</strong> via Wifi (UDP Protocol) and serial communication.</li>
+                            <li>Wrote an <strong>Inverse Kinematics</strong> script to control the <strong>ST servo’s roll, pitch</strong>, and <strong>yaw</strong> motion in <strong>PSM</strong>.
+                            <li>Wrote a Python script with the <strong>Moveit</strong> package to test and analyze the MTM and PSM in <strong>Rviz</strong>.</li>
+                            </ul>
+                            </div>
+
+                            <!-- Summer Research Internship Dr. Leena Vachhani -->
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+
+                                <!-- LEFT STACK -->
+                                <div class="cv-item-main">
+                                <span class="cv-item-title">
+                                    Summer Research Internship
+                                </span>
+                                <span class="cv-item-subtitle">
+                                    <strong>(Under Dr. Leena Vachhani) </strong>
+                                </span>
+                                </div>
+
+                                <!-- RIGHT STACK -->
+                                <div class="cv-item-meta">
+                                <span class="cv-item-date">Jun 2024 - Aug 2024</span>
+                                <span class="cv-item-place">IIT-Bombay, Maharashtra</span>
+                                </div>
+
+                            </div>
+                            
+                            <!-- NO description line here -->
+
+                            <ul class="cv-item-list">
+                            <li>Worked as a <strong>research</strong> intern at <strong>IIT-Bombay</strong> on a <strong>Commercial-Off-The-Shelf (COTS)</strong> based robot that aims to do path planning using a drivable area segmentation model that runs offline on a smartphone.</li>
+                            <li>Worked in Gazebo to obtain depth estimation using <strong>Monocular Depth Estimation</strong>.</li>
+                            <li>Created <strong>Depth Maps</strong> and <strong>Polar Occupancy Grid</strong> for the vehicles and drivable areas respectively, and evaluated the performance of different segmentation models, including <strong>Deeplab, FFNet,</strong> and <strong>DDRNet</strong>, on <strong>COTS devices</strong>, such as smartphones.</li>
+                            <li>Worked on developing a mobile application to deploy and run a segmentation model <strong>(TFLite model)</strong> on smartphones.</li>
+                            </ul>
+                            </div>
+
+                            <!-- Summer Research Internship  (Provisional Patent Filed) -->
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+
+                                <!-- LEFT STACK -->
+                                <div class="cv-item-main">
+                                <span class="cv-item-title">
+                                    Summer Research Internship (Provisional Patent Filed)
+                                </span>
+                                <span class="cv-item-subtitle">
+                                    <strong>(Under Dr. Nirav Patel)  </strong>
+                                </span>
+                                </div>
+
+                                <!-- RIGHT STACK -->
+                                <div class="cv-item-meta">
+                                <span class="cv-item-date">Jun 2023 - Jul 2023</span>
+                                <span class="cv-item-place">IIT-Madras, Tamil Nadu</span>
+                                </div>
+
+                            </div>
+                            
+                            <!-- NO description line here -->
+
+                            <ul class="cv-item-list">
+                            <li>Designed, <strong>3D printed</strong>, and <strong>provisional patent filed</strong> an end effector for the <strong>Low-Cost Master (LCM)</strong> device in <strong>Fusion 360</strong>, which allows the surgeon to control the tooltip of the <strong>slave device KUKA iiwa</strong> for precise manipulation.</li>
+                            <li><strong>Reduced the Latency</strong> between master and slave device from <strong>15ms to 2-3 ms</strong> by optimizing the <strong>Python</strong> and <strong>Embedded Scripts</strong> to meet the surgical standards.</li>
+                            <li>Simulated the <strong>LCM</strong> and slave device <strong>(KUKA)</strong> in <strong>Rviz</strong> and <strong>Gazebo</strong>.
+                            <li>During this internship, worked with Esp32, Optical Encoder (Orange 2500 PPR), and <strong>Physical KUKA iiwa</strong>.</li>
+
+                            </ul>
+                            </div>
+                        
+                        <!-- Projects Section -->
+                         <!-- Deep Q -->
+                        <div class="cv-section">
+                            <h2 class="cv-section-title">Projects</h2>
+                            
 
                             <div class="cv-item">
                                 <div class="cv-item-header">
-                                    <span class="cv-item-title">Innovation Grant ($5,000)</span>
-                                    <span class="cv-item-date">2024</span>
+
+                                <!-- LEFT STACK -->
+                                <div class="cv-item-main">
+                                <span class="cv-item-title">
+                                    Deep Q-Learning Based Reinforcement Learning
+                                </span>
+                                <span class="cv-item-subtitle">
+                                    <strong>Mini Project</strong>
+                                </span>
                                 </div>
-                                <div class="cv-item-subtitle">University Innovation Fund</div>
+
+                                <!-- RIGHT STACK -->
+                                <div class="cv-item-meta">
+                                <span class="cv-item-date">Aug 2025</span>
+                                <span class="cv-item-place">Remote</span>
+                                </div>
+
+                            </div>
+
+                            <!-- NO description line here -->
+
+                            <ul class="cv-item-list">
+                                <li>Designed and implemented a <strong>Deep Q-Learning (DQN) model</strong> in Jupyter Notebook to balance the pole in CartPole-v0 from Gymnasium, utilizing a 4-layer neural network with ReLU activations and linear output.</li>
+                                <li>Applied reinforcement learning techniques including <strong>epsilon-greedy exploration</strong> and <strong>soft target network updates</strong> to improve policy stability and convergence.</li>
+                            </ul>
+                            </div>
+
+                            <!-- Turtlesim Turtle Catcher -->
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+
+                                <!-- LEFT STACK -->
+                                <div class="cv-item-main">
+                                <span class="cv-item-title">
+                                    Turtlesim Turtle Catcher
+                                </span>
+                                <span class="cv-item-subtitle">
+                                    <strong>Mini Project</strong>
+                                </span>
+                                </div>
+
+                                <!-- RIGHT STACK -->
+                                <div class="cv-item-meta">
+                                <span class="cv-item-date">Aug 2025</span>
+                                <span class="cv-item-place">Remote</span>
+                                </div>
+
+                            </div>
+
+                            <!-- NO description line here -->
+
+                            <ul class="cv-item-list">
+                            <li>Built and tested a <strong>ROS2</strong> workspace by creating <strong>custom nodes</strong> and verifying inter-node communication using <strong>topics</strong>, <strong>publishers</strong>, and <strong>subscribers</strong>.</li> 
+                            <li>Explored <strong>ROS2 parameters</strong> and services to configure node behavior dynamically, ensuring modularity and reusability of system components.
+                            <li>Conducted system-level debugging and monitoring with <strong>ROS2 CLI</strong> tools (ros2 topic, ros2 node, ros2 param) to validate functionality and improve reliability of robotic applications.</li>
+                            </ul>
+                            </div>
+
+                            <!-- Spider_Arm -->
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+
+                                <!-- LEFT STACK -->
+                                <div class="cv-item-main">
+                                <span class="cv-item-title">
+                                    Spider_Arm
+                                </span>
+                                <span class="cv-item-subtitle">
+                                    <strong>Research Club’s Project, Spider, R&D Club, NIT Tiruchirappalli </strong>
+                                </span>
+                                </div>
+
+                                <!-- RIGHT STACK -->
+                                <div class="cv-item-meta">
+                                <span class="cv-item-date">Oct 2023 - Jul 2025</span>
+                                <span class="cv-item-place">NIT-Trichy, Tamil Nadu</span>
+                                </div>
+
+                            </div>
+
+                            <!-- NO description line here -->
+
+                            <ul class="cv-item-list">
+                            <li>Designed a cost-effective <strong>6 Degrees of Freedom (6-DOF)</strong> serial manipulator with a reach of <strong>700 mm</strong>, a precision level of <strong>5 mm</strong>, and the capability to handle a<strong> 0.5 kg payload</strong> all within the budget of <strong>$700</strong>.</li>
+                            <li>Designed the manipulator using <strong>Fusion 360</strong> and worked on the hardware <strong>(Stepper Motors, Limit Switches, Teensy 4.1)</strong> and software interface.</li>
+                            <li>Simulated the manipulator in the <strong>Gazebo</strong>, visualized using <strong>Rviz</strong>, and proceeded with the motion planning using <strong>Moveit</strong>.</li>
+                            <li>Completed phase one of fabrication and tested the <strong>4 DOF Assembly</strong> motion and executed basic pick and place in <strong>Pybullet</strong>.</li>
+                            <li><strong>Awarded Seed Funding of Rs 50,000</strong> by <strong>GUJCOST (Gujarat Council of Science and Technology)</strong> through <strong>Robofest 4.0</strong> (India’s Biggest Robotics Competition).</li>
+
+
+                            </ul>
+                            </div>
+
+                            <!-- Hola Bot -->
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+
+                                <!-- LEFT STACK -->
+                                <div class="cv-item-main">
+                                <span class="cv-item-title">
+                                    Hola Bot
+                                </span>
+                                <span class="cv-item-subtitle">
+                                    <strong>E-Yantra Robotics Competition: (Semi - Finalist) </strong>
+                                </span>
+                                </div>
+
+                                <!-- RIGHT STACK -->
+                                <div class="cv-item-meta">
+                                <span class="cv-item-date">Aug 2022 -Feb 2023</span>
+                                <span class="cv-item-place">IIT-Bombay, Maharashtra</span>
+                                </div>
+
+                            </div>
+
+                            <!-- NO description line here -->
+
+                            <ul class="cv-item-list">
+                            <li>Developed a <strong>3-wheel holonomic robot</strong> (Mobile Robot) with <strong>3 Degrees of Freedom (DOF)</strong> to draw complex art.</li>
+                            <li>Designed the robot using <strong>Fusion 360</strong> and <strong>OpenCV</strong> to detect the <strong>Aruco Marker</strong> to identify the robot's position. The robot's navigation was done by the <strong>Proportional</strong> and <strong>Differential Controller</strong>.</li>
+                            <li>Simulated the robot in <strong>Gazebo</strong> and wrote <strong>ROS</strong> node to subscribe the positional data of the robot in the canvas and publish the speed required for the three wheels of the robot.</li>
+                            <li>Worked with custom eYFi-Mega Board <strong>(Atmega2560+Esp32)</strong> board to connect to <strong>ROS</strong> node via <strong>Wifi</strong> and control the speed of the stepper motors.</li>
+
+
+
+
+                            </ul>
+                            </div>
+
+                        
+                        <!-- Academic Achievements -->
+                        <div class="cv-section">
+                            <h2 class="cv-section-title">Academic Achievements</h2>
+                            
+                            <div class="cv-item">
+                                <div class="cv-item-description">
+                                    <!-- <li><strong>Narenthiran Mathavaraj</strong>, Co-Author. (2024). "Lightweight SLAM for Resource-Constrained Mobile Robots." 
+                                        <em>IEEE International Conference on Robotics and Automation (ICRA)</em>. -->
+                                    <li>Secured <strong>Excellent Presenter Award</strong> at the 7th International Conference on Mechatronics, Robotics, and Automation <strong>(ICMRA)</strong>, Wuhan, China on <strong>September 21st, 2024</strong>.</li>
+                                    <li>Secured <strong>Rank 23</strong> in <strong>National Mathematics Indian Talent</strong> at the State level conducted by Indian Talent in <strong>2017</strong>.</li>
+                                    <li>Was among the top <strong>10%</strong> of the candidates in the <strong>International Olympiad of Mathematics</strong> conducted by Silver Zone Olympiad in <strong>2015</strong>.</li>
+                            </div>
+                        </div>
+
+                         <!-- Position of Responsibility -->
+                        <div class="cv-section">
+                            <h2 class="cv-section-title">Position of Responsibility</h2>
+                            
+                            <!-- Spider Research adn Development Club -->
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+
+                                <!-- LEFT STACK -->
+                                <div class="cv-item-main">
+                                <span class="cv-item-title">
+                                    Spider Research and Development Club
+                                </span>
+                                <span class="cv-item-subtitle">
+                                    <strong>Researcher </strong>
+                                </span>
+                                </div>
+
+                                <!-- RIGHT STACK -->
+                                <div class="cv-item-meta">
+                                <span class="cv-item-date">Aug 2022 - July 2025</span>
+                                <span class="cv-item-place">NIT-Trichy, Tamil Nadu</span>
+                                </div>
+
+                            </div>
+                            
+                            <!-- NO description line here -->
+
+                            <ul class="cv-item-list">
+                            <li><strong>Spider R&D</strong> is the official Research and Development Club of <strong>NIT, Trichy</strong>.</li>
+                            <li>As a member and an active researcher, worked on club <strong>research projects</strong> and participated in <strong>competitions</strong> and <strong>hackathons</strong>.</li>
+                            <li>Doing Research projects in the field of <strong>mobile robotics</strong> and <strong>arm manipulation</strong>.</li>
+                            <li>Currently, published a research paper on <strong>6-Degrees Of Freedom (DOF)</strong> robotic arm <strong>SPIDER_ARM</strong>.</li>
+
+                            </ul>
+                            </div>
+
+                            <!-- Festember Marketing Team -->
+                            <div class="cv-item">
+                                <div class="cv-item-header">
+
+                                <!-- LEFT STACK -->
+                                <div class="cv-item-main">
+                                <span class="cv-item-title">
+                                    Festember Marketing Team 
+                                </span>
+                                <span class="cv-item-subtitle">
+                                    <strong>Manager </strong>
+                                </span>
+                                </div>
+
+                                <!-- RIGHT STACK -->
+                                <div class="cv-item-meta">
+                                <span class="cv-item-date">Dec 2022 - Oct 2023</span>
+                                <span class="cv-item-place">NIT-Trichy, Tamil Nadu</span>
+                                </div>
+
+                            </div>
+                            
+                            <!-- NO description line here -->
+
+                            <ul class="cv-item-list">
+                            <li><strong>Festember</strong> is South India’s Largest Cultural Festival conducted by <strong>NIT, Trichy</strong>.</li>
+                            <li>As part of this team, coordinated with sponsors and partners from different <strong>MNCs</strong> to collect capital for running a successful festival.</li>
+
+                            </ul>
+                            </div>
+
+
+                         <!-- Extracurricular Activities -->
+                        <div class="cv-section">
+                            <h2 class="cv-section-title">Extracurricular Activities</h2>
+                            
+                            <div class="cv-item">
+                                <div class="cv-item-description">
+                                    <!-- <li><strong>Narenthiran Mathavaraj</strong>, Co-Author. (2024). "Lightweight SLAM for Resource-Constrained Mobile Robots." 
+                                        <em>IEEE International Conference on Robotics and Automation (ICRA)</em>. -->
+                                    <li>Conducted a robotics workshop called <strong>Techids</strong>, for underprivileged school students as part of <strong>Pragyan Social Responsibility Event</strong> in <strong>2022</strong>.</li>
+                                    <li>Secured <strong>Second Place</strong> in <strong>KKCA 2nd All India FIDE Rated Chess Tournament</strong> organized by <strong>Kovai Kids Chess Academy</strong> in <strong>2017</strong>.</li>
                             </div>
                         </div>
 
